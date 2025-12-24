@@ -1,0 +1,32 @@
+policy_id,category,attribute,clause_text,source_doc
+POL_INV_001,INVEST,Independent,User stories should be independent and not overlap or depend directly on other stories.,INVEST checklist
+POL_INV_002,INVEST,Negotiable,"Stories must describe user value without fixing a technical solution, allowing negotiation.",INVEST checklist
+POL_INV_003,INVEST,Valuable,Each story must clearly deliver value to a specific user or stakeholder.,INVEST checklist
+POL_INV_004,INVEST,Estimable,Stories should be small enough that developers can estimate the effort confidently.,INVEST checklist
+POL_INV_005,INVEST,Small,Stories should be deliverable within one sprint and focus on a single outcome.,INVEST checklist
+POL_INV_006,INVEST,Testable,Acceptance criteria must be specific and measurable to allow verification.,INVEST checklist
+POL_AEM_001,Security,HTL,All output in HTL templates must use context-aware escaping to prevent XSS.,AEM HTL Guidelines
+POL_AEM_002,Security,JSP,JSP scripting is disallowed in AEM Cloud Service; use HTL or Sling Models instead.,AEM Security Policy
+POL_AEM_003,Caching,Dispatcher,Dispatcher must cache anonymous GET requests for HTML pages under /content.,AEM Dispatcher Guidelines
+POL_AEM_004,Caching,Cache Invalidation,"When content is published or deactivated, related Dispatcher cache entries must be invalidated automatically.",AEM Dispatcher Guidelines
+POL_AEM_005,Performance,Headers,Responses must include cache-control headers compatible with Dispatcher caching.,AEM Performance Rules
+POL_AEM_006,Accessibility,Alt Text,All images in authored pages must provide alt text to ensure accessibility compliance (WCAG 2.1).,AEM Accessibility Policy
+POL_AEM_007,Security,Immutable Apps,Custom code must be deployed under /apps and treated as immutable (read-only) in AEM Cloud Service.,AEM Security Policy
+POL_AEM_008,Performance,Clientlibs,Client libraries (clientlibs) should be minified and versioned to improve load time and caching.,AEM Performance Guidelines
+POL_AEM_009,Content,Fragments,Content Fragments exposed through GraphQL APIs must validate allowed models and fields only.,AEM Headless Guidelines
+POL_AEM_010,Workflow,Authoring,Authoring workflows must include review and activation steps before content goes live.,AEM Publishing Policy
+POL_RE_001,Requirements,Clarity,Requirements must use clear and unambiguous language avoiding vague terms.,ISO/IEC 29148
+POL_RE_002,Requirements,Measurable,Success criteria must include specific measurable metrics.,ISO/IEC 29148
+POL_RE_003,Requirements,Traceability,Requirements must be traceable to business objectives.,ISO/IEC 29148
+POL_RE_004,Requirements,Completeness,All necessary information must be included for implementation.,ISO/IEC 29148
+POL_RE_005,Requirements,Consistency,Requirements must not contradict each other.,ISO/IEC 29148
+POL_RE_006,Requirements,Verifiable,Each requirement must have clear verification criteria.,ISO/IEC 29148
+POL_RE_007,Requirements,User_Persona,Requirements must identify the target user or stakeholder.,RE Best Practices
+POL_RE_008,Requirements,Priority,Requirements should indicate priority or business value.,RE Best Practices
+POL_RE_009,Requirements,Rationale,Requirements should include justification or business reason.,RE Best Practices
+POL_RE_010,Requirements,Acceptance,Acceptance criteria must be agreed upon by stakeholders.,RE Best Practices
+POL_RE_011,Requirements,Format,Requirements should follow standard user story format.,RE Best Practices
+POL_RE_012,Requirements,Dependencies,External dependencies must be explicitly documented.,RE Best Practices
+POL_RE_013,Requirements,Assumptions,Assumptions and constraints must be stated clearly.,RE Best Practices
+POL_RE_014,Requirements,Non_Functional,Performance and quality attributes must be quantified.,RE Best Practices
+POL_RE_015,Requirements,Scope,Story scope must be clearly bounded and specific.,RE Best Practices

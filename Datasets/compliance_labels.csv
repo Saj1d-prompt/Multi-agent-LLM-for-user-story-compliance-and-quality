@@ -1,0 +1,119 @@
+story_id,policy_id,status,rationale,confidence
+story_041,POL_RE_008,unclear,Unclear compliance for 'Priority'—insufficient details in ACs.,0.79
+story_041,POL_RE_001,pass,Compliant with 'Clarity'—implementation and ACs align with policy intent.,0.89
+story_041,POL_RE_002,fail,Violation: Story lacks 'Measurable' as required by policy.,0.8
+story_023,POL_RE_003,fail,Violation: Story lacks 'Traceability' as required by policy.,0.85
+story_023,POL_INV_005,fail,Violation: Story lacks 'Small' as required by policy.,0.86
+story_023,POL_AEM_003,pass,Compliant with 'Dispatcher'—implementation and ACs align with policy intent.,0.88
+story_023,POL_RE_008,fail,Fails 'Priority' check—criteria or implementation missing or unclear.,0.9
+story_023,POL_RE_004,fail,Fails 'Completeness' check—criteria or implementation missing or unclear.,0.77
+story_056,POL_RE_005,unclear,Unclear compliance for 'Consistency'—insufficient details in ACs.,0.89
+story_056,POL_RE_002,pass,Compliant with 'Measurable'—implementation and ACs align with policy intent.,0.93
+story_056,POL_RE_010,unclear,Cannot determine compliance for 'Acceptance' due to vague description.,0.81
+story_056,POL_RE_009,fail,Fails 'Rationale' check—criteria or implementation missing or unclear.,0.78
+story_056,POL_RE_015,fail,Violation: Story lacks 'Scope' as required by policy.,0.8
+story_071,POL_RE_015,fail,Fails 'Scope' check—criteria or implementation missing or unclear.,0.8
+story_071,POL_RE_002,pass,Story fully complies with policy 'Measurable'. Criteria are clearly satisfied.,0.91
+story_071,POL_AEM_003,fail,Violation: Story lacks 'Dispatcher' as required by policy.,0.76
+story_071,POL_INV_005,pass,Compliant with 'Small'—implementation and ACs align with policy intent.,0.91
+story_071,POL_INV_006,pass,Story fully complies with policy 'Testable'. Criteria are clearly satisfied.,0.91
+story_001,POL_RE_011,pass,Compliant with 'Format'—implementation and ACs align with policy intent.,0.87
+story_001,POL_RE_007,pass,Compliant with 'User_Persona'—implementation and ACs align with policy intent.,0.89
+story_001,POL_AEM_003,pass,Story fully complies with policy 'Dispatcher'. Criteria are clearly satisfied.,0.94
+story_027,POL_INV_005,pass,Story fully complies with policy 'Small'. Criteria are clearly satisfied.,0.88
+story_027,POL_RE_005,unclear,Unclear compliance for 'Consistency'—insufficient details in ACs.,0.9
+story_027,POL_RE_001,pass,Story fully complies with policy 'Clarity'. Criteria are clearly satisfied.,0.85
+story_027,POL_INV_006,fail,Violation: Story lacks 'Testable' as required by policy.,0.79
+story_040,POL_RE_015,pass,Compliant with 'Scope'—implementation and ACs align with policy intent.,0.93
+story_040,POL_INV_003,pass,Compliant with 'Valuable'—implementation and ACs align with policy intent.,0.95
+story_040,POL_RE_002,fail,Fails 'Measurable' check—criteria or implementation missing or unclear.,0.81
+story_066,POL_RE_010,fail,Fails 'Acceptance' check—criteria or implementation missing or unclear.,0.78
+story_066,POL_RE_012,unclear,Cannot determine compliance for 'Dependencies' due to vague description.,0.89
+story_066,POL_AEM_005,pass,Story fully complies with policy 'Headers'. Criteria are clearly satisfied.,0.93
+story_011,POL_AEM_003,fail,Fails 'Dispatcher' check—criteria or implementation missing or unclear.,0.76
+story_011,POL_RE_001,pass,Story fully complies with policy 'Clarity'. Criteria are clearly satisfied.,0.91
+story_011,POL_AEM_001,pass,Story fully complies with policy 'HTL'. Criteria are clearly satisfied.,0.88
+story_011,POL_RE_009,fail,Violation: Story lacks 'Rationale' as required by policy.,0.81
+story_045,POL_AEM_002,fail,Fails 'JSP' check—criteria or implementation missing or unclear.,0.85
+story_045,POL_AEM_001,pass,Story fully complies with policy 'HTL'. Criteria are clearly satisfied.,0.94
+story_045,POL_INV_001,unclear,Unclear compliance for 'Independent'—insufficient details in ACs.,0.8
+story_045,POL_INV_005,pass,Compliant with 'Small'—implementation and ACs align with policy intent.,0.87
+story_045,POL_RE_012,pass,Compliant with 'Dependencies'—implementation and ACs align with policy intent.,0.94
+story_082,POL_INV_002,fail,Violation: Story lacks 'Negotiable' as required by policy.,0.75
+story_082,POL_AEM_004,pass,Story fully complies with policy 'Cache Invalidation'. Criteria are clearly satisfied.,0.88
+story_082,POL_AEM_001,fail,Violation: Story lacks 'HTL' as required by policy.,0.9
+story_082,POL_INV_003,pass,Compliant with 'Valuable'—implementation and ACs align with policy intent.,0.95
+story_036,POL_AEM_010,unclear,Cannot determine compliance for 'Authoring' due to vague description.,0.82
+story_036,POL_RE_002,unclear,Cannot determine compliance for 'Measurable' due to vague description.,0.79
+story_036,POL_INV_005,pass,Story fully complies with policy 'Small'. Criteria are clearly satisfied.,0.88
+story_057,POL_RE_006,unclear,Unclear compliance for 'Verifiable'—insufficient details in ACs.,0.9
+story_057,POL_AEM_003,pass,Story fully complies with policy 'Dispatcher'. Criteria are clearly satisfied.,0.9
+story_057,POL_RE_004,unclear,Cannot determine compliance for 'Completeness' due to vague description.,0.85
+story_087,POL_RE_004,pass,Compliant with 'Completeness'—implementation and ACs align with policy intent.,0.86
+story_087,POL_RE_001,fail,Fails 'Clarity' check—criteria or implementation missing or unclear.,0.78
+story_087,POL_RE_005,fail,Violation: Story lacks 'Consistency' as required by policy.,0.88
+story_013,POL_AEM_010,fail,Violation: Story lacks 'Authoring' as required by policy.,0.86
+story_013,POL_AEM_004,fail,Fails 'Cache Invalidation' check—criteria or implementation missing or unclear.,0.75
+story_013,POL_AEM_009,pass,Story fully complies with policy 'Fragments'. Criteria are clearly satisfied.,0.91
+story_013,POL_AEM_005,pass,Compliant with 'Headers'—implementation and ACs align with policy intent.,0.87
+story_005,POL_AEM_001,unclear,Cannot determine compliance for 'HTL' due to vague description.,0.76
+story_005,POL_AEM_003,pass,Compliant with 'Dispatcher'—implementation and ACs align with policy intent.,0.9
+story_005,POL_AEM_007,pass,Compliant with 'Immutable Apps'—implementation and ACs align with policy intent.,0.87
+story_019,POL_INV_003,fail,Fails 'Valuable' check—criteria or implementation missing or unclear.,0.84
+story_019,POL_RE_008,pass,Story fully complies with policy 'Priority'. Criteria are clearly satisfied.,0.89
+story_019,POL_AEM_008,pass,Story fully complies with policy 'Clientlibs'. Criteria are clearly satisfied.,0.88
+story_019,POL_RE_003,unclear,Unclear compliance for 'Traceability'—insufficient details in ACs.,0.78
+story_019,POL_RE_005,fail,Violation: Story lacks 'Consistency' as required by policy.,0.87
+story_029,POL_AEM_010,fail,Violation: Story lacks 'Authoring' as required by policy.,0.78
+story_029,POL_INV_003,fail,Violation: Story lacks 'Valuable' as required by policy.,0.85
+story_029,POL_RE_005,fail,Fails 'Consistency' check—criteria or implementation missing or unclear.,0.83
+story_029,POL_RE_009,pass,Compliant with 'Rationale'—implementation and ACs align with policy intent.,0.95
+story_050,POL_RE_014,pass,Compliant with 'Non_Functional'—implementation and ACs align with policy intent.,0.88
+story_050,POL_AEM_007,unclear,Unclear compliance for 'Immutable Apps'—insufficient details in ACs.,0.76
+story_050,POL_INV_005,pass,Story fully complies with policy 'Small'. Criteria are clearly satisfied.,0.85
+story_063,POL_INV_003,unclear,Unclear compliance for 'Valuable'—insufficient details in ACs.,0.8
+story_063,POL_AEM_005,pass,Compliant with 'Headers'—implementation and ACs align with policy intent.,0.85
+story_063,POL_RE_004,unclear,Cannot determine compliance for 'Completeness' due to vague description.,0.89
+story_063,POL_RE_011,pass,Compliant with 'Format'—implementation and ACs align with policy intent.,0.9
+story_063,POL_RE_006,pass,Story fully complies with policy 'Verifiable'. Criteria are clearly satisfied.,0.89
+story_074,POL_RE_008,pass,Story fully complies with policy 'Priority'. Criteria are clearly satisfied.,0.93
+story_074,POL_AEM_002,fail,Violation: Story lacks 'JSP' as required by policy.,0.78
+story_074,POL_RE_003,pass,Compliant with 'Traceability'—implementation and ACs align with policy intent.,0.86
+story_074,POL_AEM_005,pass,Story fully complies with policy 'Headers'. Criteria are clearly satisfied.,0.92
+story_074,POL_RE_005,fail,Fails 'Consistency' check—criteria or implementation missing or unclear.,0.89
+story_070,POL_RE_006,fail,Fails 'Verifiable' check—criteria or implementation missing or unclear.,0.9
+story_070,POL_INV_005,fail,Fails 'Small' check—criteria or implementation missing or unclear.,0.75
+story_070,POL_RE_008,fail,Violation: Story lacks 'Priority' as required by policy.,0.76
+story_070,POL_AEM_009,pass,Story fully complies with policy 'Fragments'. Criteria are clearly satisfied.,0.86
+story_077,POL_RE_013,pass,Story fully complies with policy 'Assumptions'. Criteria are clearly satisfied.,0.94
+story_077,POL_RE_012,pass,Compliant with 'Dependencies'—implementation and ACs align with policy intent.,0.88
+story_077,POL_RE_010,fail,Fails 'Acceptance' check—criteria or implementation missing or unclear.,0.77
+story_031,POL_RE_013,pass,Compliant with 'Assumptions'—implementation and ACs align with policy intent.,0.93
+story_031,POL_RE_010,fail,Fails 'Acceptance' check—criteria or implementation missing or unclear.,0.81
+story_031,POL_AEM_008,pass,Story fully complies with policy 'Clientlibs'. Criteria are clearly satisfied.,0.89
+story_034,POL_AEM_008,unclear,Cannot determine compliance for 'Clientlibs' due to vague description.,0.81
+story_034,POL_INV_006,unclear,Unclear compliance for 'Testable'—insufficient details in ACs.,0.86
+story_034,POL_RE_009,pass,Compliant with 'Rationale'—implementation and ACs align with policy intent.,0.9
+story_034,POL_RE_007,fail,Violation: Story lacks 'User_Persona' as required by policy.,0.83
+story_034,POL_AEM_001,pass,Compliant with 'HTL'—implementation and ACs align with policy intent.,0.92
+story_012,POL_INV_006,unclear,Unclear compliance for 'Testable'—insufficient details in ACs.,0.78
+story_012,POL_AEM_003,fail,Fails 'Dispatcher' check—criteria or implementation missing or unclear.,0.77
+story_012,POL_AEM_008,pass,Story fully complies with policy 'Clientlibs'. Criteria are clearly satisfied.,0.86
+story_012,POL_RE_005,pass,Story fully complies with policy 'Consistency'. Criteria are clearly satisfied.,0.9
+story_012,POL_INV_001,fail,Fails 'Independent' check—criteria or implementation missing or unclear.,0.76
+story_067,POL_AEM_009,fail,Fails 'Fragments' check—criteria or implementation missing or unclear.,0.89
+story_067,POL_AEM_010,unclear,Cannot determine compliance for 'Authoring' due to vague description.,0.77
+story_067,POL_RE_004,pass,Compliant with 'Completeness'—implementation and ACs align with policy intent.,0.91
+story_067,POL_AEM_004,fail,Violation: Story lacks 'Cache Invalidation' as required by policy.,0.87
+story_068,POL_AEM_006,fail,Fails 'Alt Text' check—criteria or implementation missing or unclear.,0.77
+story_068,POL_AEM_010,pass,Story fully complies with policy 'Authoring'. Criteria are clearly satisfied.,0.93
+story_068,POL_AEM_003,unclear,Unclear compliance for 'Dispatcher'—insufficient details in ACs.,0.89
+story_068,POL_AEM_004,pass,Compliant with 'Cache Invalidation'—implementation and ACs align with policy intent.,0.89
+story_032,POL_RE_004,fail,Violation: Story lacks 'Completeness' as required by policy.,0.84
+story_032,POL_INV_006,fail,Violation: Story lacks 'Testable' as required by policy.,0.82
+story_032,POL_RE_008,pass,Story fully complies with policy 'Priority'. Criteria are clearly satisfied.,0.91
+story_032,POL_RE_003,fail,Fails 'Traceability' check—criteria or implementation missing or unclear.,0.83
+story_032,POL_RE_014,fail,Violation: Story lacks 'Non_Functional' as required by policy.,0.81
+story_076,POL_RE_008,pass,Compliant with 'Priority'—implementation and ACs align with policy intent.,0.91
+story_076,POL_AEM_009,fail,Fails 'Fragments' check—criteria or implementation missing or unclear.,0.79
+story_076,POL_AEM_006,pass,Story fully complies with policy 'Alt Text'. Criteria are clearly satisfied.,0.91

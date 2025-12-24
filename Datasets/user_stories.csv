@@ -1,0 +1,1455 @@
+ID,Domain,Repository,Created,URL,Title,Labels,Description
+adobe-aem-core-cif-components-759,traditional-website,adobe/aem-core-cif-components,2021-11-23T11:22:20Z,https://github.com/adobe/aem-core-cif-components/issues/759,[Feature Request] Store Root URL can not be customized / overridden,"enhancement, Done","<!--- STOP! Before you open an issue please search this repository's issues to see if it has already been reported. This helps reduce duplicate issues from being created. -->
+  <!--- SECURITY DISCLOSURE: If this is a security disclosure please follow the guidelines in CONTRIBUTING.md. This helps keep folks from accidentally releasing vulnerabilities before the maintainers get a chance to fix the issue. -->
+  
+  ### Expected Behaviour
+  We have a custom link rewriter service in place so we need to customize
+  
+  ```html
+  <meta name=""store-config"" content=""{&#34;storeView&#34;:&#34;my_store&#34;,&#34;graphqlEndpoint&#34;:&#34;/api/graphql&#34;,&#34;graphqlMethod&#34;:&#34;POST&#34;,&#34;headers&#34;:{&#34;Store&#34;:&#34;purolator_en&#34;},&#34;storeRootUrl&#34;:&#34;/content/website/foo/bar/en.html&#34;}""/>
+  ```
+  
+  ... (1 more lines)"
+adobe-aem-core-cif-components-719,headless-api,adobe/aem-core-cif-components,2021-10-19T11:00:13Z,https://github.com/adobe/aem-core-cif-components/issues/719,Multiple currency enablement,"enhancement, feature","### User Story
+  
+  As a business user, I want to give website users the ability to change the currency displayed on the e-commerce.
+  
+  ### Description & Motivation
+  
+  Current version of CIF doesn't allow to display a currency selection with currencies [configured](https://devdocs.magento.com/guides/v2.4/graphql/queries/directory-currency.html) on Magento 
+  ### Deliverables
+  <!--- What needs to be done? Example: -->
+  <!--- Code changes -->
+  ... (13 more lines)
+
+Acceptance Criteria (4):
+--------------------------------------------------------------------------------
+  1. be able to select the desired currency for e-commerce
+  2. be able to pass to each Magento call the header Content-Currency as specified in the [documentation](https://devdocs.
+  3. support the header Content-Currency to use the value selected by end user
+  4. be used in Magento calls"
+adobe-aem-core-cif-components-580,traditional-website,adobe/aem-core-cif-components,2021-06-02T21:28:10Z,https://github.com/adobe/aem-core-cif-components/issues/580,Ability to change class outside of the Search Bar component,"enhancement, good first issue","### User Story
+  As a developer, I want the ability to close the Search Bar component by simply changing the CSS class without bugs resulting from the internal toggle() method.
+  
+  ### Description & Motivation
+  Instead of relying on an internal state (this._state.visible), we would like to check against the current CSS class (.searchBar__root_open) of the the search bar root <div>. The current method introduces errors when the CSS class is changed outside the components toggle method. 
+  The motivation for this change is to prevent phantom clicks that don’t change the component state when the CSS of the root element is changed (from an outside source). Furthermore, this will ultimately let the user see only one menu item open at a time. 
+  
+  ### Deliverables
+  Provide a code update for the toggle() function within searchbar.js (lines 73 -81) to check for the current CSS state and toggle that class. This would require code change and also update stateObject.visible afterward.
+  
+  ... (1 more lines)
+
+Acceptance Criteria (2):
+--------------------------------------------------------------------------------
+  1. ultimately let the user see only one menu item open at a time.
+  2. have the ability to detect the current CSS state of the component and toggle accordingly despite any internal state.
+
+Technical Notes (1):
+--------------------------------------------------------------------------------
+  • (Check against this._classes.open class that gets assigned to the root element)
+
+### Verification Steps
+- Author the component and ""view as published"""
+adobe-aem-core-cif-components-522,traditional-website,adobe/aem-core-cif-components,2021-03-24T17:36:49Z,https://github.com/adobe/aem-core-cif-components/issues/522,Full cart and checkout component,enhancement,"### User Story
+  As a user, I want to be able to see the cart and checkout process as a standalone page (or pages) because that's what I'm used to from other e-commerce shops.
+  
+  ### Description & Motivation
+  * Online shoppers are not accustomed to using a ""mini checkout"" the way it's implemented with the CIF Components. They're used to seeing a full-page to go through the checkout process. 
+  * Having the checkout process on a separate template that's more minimal with fewer distractions may also help with conversions.
+  
+  ### Deliverables
+  Add a new ""full checkout"" component (potentially based on the existing mini-cart component) that can be dropped on a page on its own and guide the user through the checkout process. To allow for more flexibility and extensibility, there should also be a separate ""full cart"" component.
+
+Acceptance Criteria (5):
+--------------------------------------------------------------------------------
+  1. also be a separate ""full cart"" component.
+  2. The full cart and full checkout components should have feature parity to the existing mini-cart component.
+  3. be configurable similar to how the category/product/search pages are configurable.
+  4. The cart/checkout pages should be configurable similar to how the category/product/search pages are configurable.
+  5. have feature parity to the existing mini-cart component."
+adobe-aem-core-cif-components-492,traditional-website,adobe/aem-core-cif-components,2021-02-23T22:49:50Z,https://github.com/adobe/aem-core-cif-components/issues/492,Ability to control how product URLs are displayed/chosen,enhancement,"### User Story
+  - As a user, I want to have full control over how a product URL looks, so that I can use the CIF connector on an existing product site without changing anything from an SEO perspective, or from a marketing perspective.
+  
+  ### Description & Motivation
+  - Whoever is using the CIF library would like full control over how product pages respond, or category pages. This motivation came from a client using the CIF library and was unable to do this - workarounds were implemented for this client, but I thought it would be much cleaner if a `UrlDelegator` could be used to choose which `UrlProvider` to use. This way, custom client-specific code can be used to implement the `UrlProvider` class and the `UrlDelegator` will be able to use theirs or the default provider based on priority. 
+  
+  ### Deliverables
+  - Make a `UrlDelegator` class so that custom versions of the `UrlProvider` can be implemented for client-specific product-name handling. The documentation would need to reflect t
+
+Acceptance Criteria (5):
+--------------------------------------------------------------------------------
+  1. not have to modify the URL structure to make it work with CIF.
+  2. be able to use theirs or the default provider based on priority.
+  3. be able to have product pages be whatever page they want.
+  4. determine if the custom version should be used on a case-by-case basis.
+  5. A user of the CIF library should be able to have product pages be whatever page they want. If they have a custom/existing page template type, they should not have to modify the URL structure to make it work with CIF. An implementor can help write custom logic to define what the product-key is for any of their custom pages, which would then pull in the product on the page with the customer's existing URL structure."
+adobe-aem-core-cif-components-440,ecommerce-cif,adobe/aem-core-cif-components,2020-11-13T08:55:31Z,https://github.com/adobe/aem-core-cif-components/issues/440,Wishlist Feature,feature,"### User Story
+  
+  As I user I want to use whishlists to manage products with my personal touch.
+  
+  ### Description & Motivation
+  
+  The ability to create/edit/delete different wishlists is crucial to offer the user a pleasant commerce journey. The user should be able to add/remove/update products to the desired wishlist organizing the cluster of products as preferred.
+  
+  ### Deliverables
+  
+  ... (6 more lines)
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. support all CRUD operations (create, read, update and delete) to manage products of wishlist.
+  2. be able to add/remove/update products to the desired wishlist organizing the cluster of products as preferred.
+  3. support all CRUD operations (create, read, update and delete) to customize/handle wishlist itself."
+adobe-aem-core-cif-components-362,ecommerce-cif,adobe/aem-core-cif-components,2020-08-05T08:21:15Z,https://github.com/adobe/aem-core-cif-components/issues/362,Use an address from the Address Book during checkout,enhancement,"### User Story
+  <!--- Add a user story in the format -->
+  <!--- As a [user], I want [goal] so that [reason]. -->
+  As a registered shopper, I want to select an address from my address book during checkout.
+  
+  ### Description & Motivation
+  <!--- Describe the feature and name the business value of it. -->
+  
+  During the checkout experience, a registered shopper must be able to select an address from the address book as the shipping or billing address
+  
+  ... (10 more lines)
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. be the street names
+  2. be pre-filled with the default address
+  3. be able to select an address from the address book as the shipping or billing address"
+adobe-aem-core-cif-components-328,traditional-website,adobe/aem-core-cif-components,2020-07-06T09:22:23Z,https://github.com/adobe/aem-core-cif-components/issues/328,[Bundle products] Implement option and quantity selection,feature,"### User Story
+  As a user, I want to be able to select the options and quantities of the items of a bundle product. When selecting an option and/or changing the selected quantities, the price calculation and bundle content should be updated to always display the current selection. See the screenshot of that feature in Magento's LUMA demo.
+  
+  ### Deliverables
+  That feature should be implemented client-side as a React component. The selection of options and quantities should be stored so that's later possible to add the bundle product to the cart but this will be implemented in another related issue. This will done according to https://devdocs.magento.com/guides/v2.3/graphql/mutations/add-bundle-products.html
+  
+  The content and options of the bundle product should be fetched client-side with GraphQL, using the `onBundleProduct` fragment of a product query.
+  
+  ### Acceptance Criteria
+  The user must be able to select the option(s) and quantities of the bundle product, and the price and cur
+
+Acceptance Criteria (5):
+--------------------------------------------------------------------------------
+  1. done according to https://devdocs.
+  2. be updated to always display the current selection.
+  3. be implemented client-side as a React component.
+  4. be fetched client-side with GraphQL, using the `onBundleProduct` fragment of a product query.
+  5. be stored so that's later possible to add the bundle product to the cart but this will be implemented in another related issue.
+
+Technical Notes (4):
+--------------------------------------------------------------------------------
+  • ### Acceptance Criteria
+The user must be able to select the option(s) and quantities of the bundle product, and the price and current content of the bundle must always be displayed
+  • The selection of options and quantities should be stored so that's later possible to add the bundle product to the cart but this will be implemented in another related issue
+  • ### User Story
+As a user, I want to be able to select the options and quantities of the items of a bundle product
+  • When selecting an option and/or changing the selected quantities, the price calculation and bundle content should be updated to always display the current selection"
+adobe-aem-core-cif-components-327,traditional-website,adobe/aem-core-cif-components,2020-07-03T11:11:04Z,https://github.com/adobe/aem-core-cif-components/issues/327,[My Account] Address book management,enhancement,"### User Story
+  <!--- Add a user story in the format -->
+  <!--- As a [user], I want [goal] so that [reason]. -->
+  As a registered shopper, I want to manage my shipping/billing addresses so I can use them properly during the checkout process.
+  
+  ### Description & Motivation
+  
+  Improve the checkout experience by allowing the shopper to select a previously stored address in the checkout process.
+  
+  ### Deliverables
+  ... (9 more lines)
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. be done via the same form used in the checkout process
+  2. have the ""Edit"" and ""Remove"" actions:
+  3. allow the developer to customize the display type (list/grid) via props or a similar mechanism."
+adobe-aem-guides-wknd-396,traditional-website,adobe/aem-guides-wknd,2023-02-06T19:41:06Z,https://github.com/adobe/aem-guides-wknd/issues/396,Include WCM Core Email Components,enhancement,"### Expected Behaviour
+  Similar to how the WCM Core forms components are added to WKND, there should be a set of usable email components in WKND. Email components also require a special template with an email page component, similar to experience fragments template page.
+  * Components:
+     * /apps/wknd/components/email/*
+  * Template
+     * /conf/wknd/settings/wcm/templates/email-page
+     * /conf/wknd/settings/wcm/template-types/email-page
+     * /conf/wknd/settings/wcm/policies/wknd/email/*
+  * Example Page
+     * /content/campaigns/wknd/master/campaign-emails/wknd-email 
+  ... (6 more lines)
+
+Acceptance Criteria (1):
+--------------------------------------------------------------------------------
+  1. be a set of usable email components in WKND.
+
+Technical Notes (1):
+--------------------------------------------------------------------------------
+  • #### Platform and Version
+AEM 6.5.x only since the disclaimer on the Core Email components is they are currently only compatible with 6.5.x and not Cloud Service"
+adobe-aem-guides-wknd-388,headless-api,adobe/aem-guides-wknd,2023-01-05T20:48:40Z,https://github.com/adobe/aem-guides-wknd/issues/388,i18n JSON example abandoned - should be fixed to show proper usage,enhancement,"### Expected Behaviour
+  There should be an example on how to use a .json for i18n
+  
+  ### Actual Behaviour
+  https://github.com/adobe/aem-guides-wknd/blob/main/ui.apps/src/main/content/jcr_root/apps/wknd/i18n/fr.json exists as an example, but appears to go unused as it isn't referenced anywhere.
+  
+  ### Reproduce Scenario (including but not limited to)
+  Looking at the live instance, https://wknd.site/fr/fr.html , this never appears. 
+  
+  #### Steps to Reproduce
+  ... (9 more lines)
+
+Acceptance Criteria (1):
+--------------------------------------------------------------------------------
+  1. be an example on how to use a ."
+adobe-aem-guides-wknd-337,other,adobe/aem-guides-wknd,2022-04-08T16:03:29Z,https://github.com/adobe/aem-guides-wknd/issues/337,[Request] This is a request to include a custom index in WKND for reference,enhancement,"WKND is used by many AEM developers as a reference for creating their first AEM Cloud Service project. An issue that we often see come up is the node structure and properties are not correct when creating a custom index, which causes the index not to appear in AEM Cloud Service.
+  
+  It would be helpful to have a custom index added to WKND for developers to reference.
+
+Technical Notes (2):
+--------------------------------------------------------------------------------
+  • An issue that we often see come up is the node structure and properties are not correct when creating a custom index, which causes the index not to appear in AEM Cloud Service
+  • WKND is used by many AEM developers as a reference for creating their first AEM Cloud Service project"
+adobe-aem-guides-wknd-298,security,adobe/aem-guides-wknd,2021-11-17T17:33:23Z,https://github.com/adobe/aem-guides-wknd/issues/298,[ Request]Add more code comments to wknd,enhancement,"<!--- STOP! Before you open an issue please search this repository's issues to see if it has already been reported. This helps reduce duplicate issues from being created. -->
+  <!--- SECURITY DISCLOSURE: If this is a security disclosure please follow the guidelines in CONTRIBUTING.md. This helps keep folks from accidentally releasing vulnerabilities before the maintainers get a chance to fix the issue. -->
+  
+  ### Expected Behaviour
+  
+  This is a suggestion to add more comments to the code for wknd."
+adobe-aem-guides-wknd-294,traditional-website,adobe/aem-guides-wknd,2021-11-12T21:33:17Z,https://github.com/adobe/aem-guides-wknd/issues/294,Use Image V3 component to reduce CLS (Cumulative Layout Shift),"enhancement, merged main","Today, WKND uses Image Core Components V2.
+  
+  V3 was released a few releases ago and among others reduces CLS during initial page rendering."
+adobe-aem-guides-wknd-292,other,adobe/aem-guides-wknd,2021-11-12T16:25:17Z,https://github.com/adobe/aem-guides-wknd/issues/292,Include Sitemap and Canonical tag configuration,enhancement,"Use the new features of Core Components to include a sitemap and canonical tag for the WKND Site
+  
+  Docs -https://experienceleague.adobe.com/docs/experience-manager-cloud-service/overview/seo-and-url-management.html?lang=en#building-an-xml-sitemap-on-aem
+  
+  Video - https://experienceleague.adobe.com/docs/experience-manager-learn/sites/seo/sitemaps.html"
+adobe-aem-guides-wknd-291,security,adobe/aem-guides-wknd,2021-11-12T16:23:17Z,https://github.com/adobe/aem-guides-wknd/issues/291,Eliminate jQuery dependency,enhancement,"<!--- STOP! Before you open an issue please search this repository's issues to see if it has already been reported. This helps reduce duplicate issues from being created. -->
+  <!--- SECURITY DISCLOSURE: If this is a security disclosure please follow the guidelines in CONTRIBUTING.md. This helps keep folks from accidentally releasing vulnerabilities before the maintainers get a chance to fix the issue. -->
+  
+  ### Expected Behaviour
+  No need for jQuery dependency
+  
+  ### Actual Behaviour
+  https://github.com/adobe/aem-guides-wknd/search?q=jquery
+  
+  ### Reproduce Scenario (including but not limited to)
+  ... (13 more lines)"
+adobe-aem-guides-wknd-288,performance,adobe/aem-guides-wknd,2021-11-11T19:56:14Z,https://github.com/adobe/aem-guides-wknd/issues/288,Improve default CDN cache settings,enhancement,"### Expected Behaviour
+  
+  #240 introduced default vhost section to set cache-control headers - this request is to continuously improve them based on feedback received from the community, to establish a robust set of cache-control headers that can be used across sites build with Core Components."
+adobe-aem-guides-wknd-283,traditional-website,adobe/aem-guides-wknd,2021-10-25T20:13:15Z,https://github.com/adobe/aem-guides-wknd/issues/283,AEM Maven Archetype Version Out of Alignment among WKND Tutorial Doc and Chapter Branches,"bug, enhancement","<!--- STOP! Before you open an issue please search this repository's issues to see if it has already been reported. This helps reduce duplicate issues from being created. -->
+  <!--- SECURITY DISCLOSURE: If this is a security disclosure please follow the guidelines in CONTRIBUTING.md. This helps keep folks from accidentally releasing vulnerabilities before the maintainers get a chance to fix the issue. -->
+  
+  ### Expected Behaviour
+  Ideally the WKND Tutorial Doc and the GitHub branches (mater as well as chapter branches) should be in good alignment or consistent so that fundamental differences (such as AEM Maven Archetype version etc.) are not becoming major road blockers when one goes through the tutorial chapters.
+  
+  WKND Tutorial Doc https://experienceleague.adobe.com/docs/experience-manager-learn/getting-started-wknd-tutorial-develop/project-archetype/project-setup.html?lang=en
+  ### Actual Behaviour
+  The most fundamental chapter - Chapter 1 - Project Setup instructs to use archetype
+
+Acceptance Criteria (2):
+--------------------------------------------------------------------------------
+  1. be in good alignment or consistent so that fundamental differences (such as AEM Maven Archetype version etc.
+  2. come across with major dependency issues with OSGi bundling because of the uneven underlying code structures/packages.
+
+Technical Notes (1):
+--------------------------------------------------------------------------------
+  • If one follows exactly what is instructed, they will come across with major dependency issues with OSGi bundling because of the uneven underlying code structures/packages"
+adobe-aem-guides-wknd-280,traditional-website,adobe/aem-guides-wknd,2021-08-05T19:06:50Z,https://github.com/adobe/aem-guides-wknd/issues/280,Normalize use of Responsive Breakpoints/Emulators,enhancement,"### Expected Behaviour
+  
+  See #277  and #279 - There is a slight (but confusing) disconnect with how the AEM Grid CSS (names), Responsive Breakpoints (node names/labels) and Emulators are setup in WKND project.
+  
+  We should either have 2 breakpoints (for simplicity):
+  
+  + Small 
+  + Default (anything > Small)
+  
+  Or we should support the usual 3 (Phone/Tablet/Desktop) but ensure they align with Page Editor emulator breakpoints so it is clear what's being edited when.
+  ... (6 more lines)
+
+Acceptance Criteria (2):
+--------------------------------------------------------------------------------
+  1. either have 2 breakpoints (for simplicity):
+  2. support the usual 3 (Phone/Tablet/Desktop) but ensure they align with Page Editor emulator breakpoints so it is clear what's being edited when."
+adobe-aem-guides-wknd-272,ui-components,adobe/aem-guides-wknd,2021-08-02T19:56:36Z,https://github.com/adobe/aem-guides-wknd/issues/272,Cloud Manager CICD PackageOverlap bug,"bug, enhancement","### Expected Behaviour
+  The WKND code should have **less than 1 number of open issues** when the code is run through the Cloud Manager CICD pipeline
+  ### Actual Behaviour
+  When including the WKND code as a 3rd party maven embed in my all/pom.xml, the Cloud Manager CICD code quality produces 2 Major bugs for PackageOverlap with ui.content.sample and ui.content. I have this occurring on 2 separate demo projects with the same Open issues. These issues are not blockers of the pipeline, but if the filter statements can be updated to remove these issues, that would be helpful!
+  
+  File Location | Line Number | Issue | Type | Severity | Effort | Rule | Tags | Documentation
+  -- | -- | -- | -- | -- | -- | -- | -- | --
+  com.adobe.aem.guides:aem-guides-wknd.ui.content.sample:1.0.0 | 0 | affected path   /content/wknd/jcr:content/image/file/jcr:content/dam:thumbnails overlaps   [com.adobe.aem.guides:aem-guides-wknd.ui.content:1.0.0] | Bug | Major |   | PackageOverlaps | aem | https://www.adobe.com/g
+
+Acceptance Criteria (1):
+--------------------------------------------------------------------------------
+  1. have **less than 1 number of open issues** when the code is run through the Cloud Manager CICD pipeline
+
+Technical Notes (1):
+--------------------------------------------------------------------------------
+  • These issues are not blockers of the pipeline, but if the filter statements can be updated to remove these issues, that would be helpful"
+adobe-aem-guides-wknd-268,traditional-website,adobe/aem-guides-wknd,2021-07-19T09:33:02Z,https://github.com/adobe/aem-guides-wknd/issues/268,Use shortened URL as canonical link,enhancement,"### Expected Behaviour
+  
+  When search on Google, for example, I want to find the wknd site with a properly shortened breadcrumb. 
+  
+  ### Actual Behaviour
+  
+  ![Screenshot 2021-07-19 at 11 31 01](https://user-images.githubusercontent.com/558094/126138121-7ced2018-cf15-4794-8e0f-4e7e6626b6aa.png)
+  
+  ### Reproduce Scenario (including but not limited to)
+  
+  ... (3 more lines)"
+adobe-aem-guides-wknd-246,other,adobe/aem-guides-wknd,2021-05-20T09:44:25Z,https://github.com/adobe/aem-guides-wknd/issues/246,Syncing with Archetype 28's immutable files update from Dispatcher SDK 2.0.57 and opt-in marker file for direct sources mode,"enhancement, merged main","### Expected Behaviour
+  WKND's dispatcher configs are in sync with [AEM CS Archetype](https://github.com/adobe/aem-project-archetype)'s dispatcher configs, Dispatcher SDK configs and the ones used in AEM CS runtime.
+  
+  ### Actual Behaviour
+  WKND needs and update from changes in Archetype 28:
+  - [https://github.com/adobe/aem-project-archetype/issues/668](https://github.com/adobe/aem-project-archetype/issues/668)
+  - [https://github.com/adobe/aem-project-archetype/pull/669](https://github.com/adobe/aem-project-archetype/pull/669)
+  - [https://github.com/adobe/aem-project-archetype/issues/703](https://github.com/adobe/aem-project-archetype/issues/703)
+  - [https://github.com/adobe/aem-project-archetype/pull/704](https://github.com/adobe/aem-project-archetype/pull/704)
+  - [https://github.com/adobe/aem-project-archetype/issues/715](https://github.com/adobe/aem-project-archetype/issues/715)
+  ... (1 more lines)"
+adobe-aem-guides-wknd-240,ecommerce-cif,adobe/aem-guides-wknd,2021-04-29T20:27:51Z,https://github.com/adobe/aem-guides-wknd/issues/240,Update default CDN caching config,enhancement,"<!--- STOP! Before you open an issue please search this repository's issues to see if it has already been reported. This helps reduce duplicate issues from being created. -->
+  <!--- SECURITY DISCLOSURE: If this is a security disclosure please follow the guidelines in CONTRIBUTING.md. This helps keep folks from accidentally releasing vulnerabilities before the maintainers get a chance to fix the issue. -->
+  
+  ### Expected Behaviour
+  
+  The commit below does introduce a set of default cache control headers, they work great and are in production on https://wknd.site/
+  
+  https://github.com/adobe/aem-guides-wknd/commit/7c7b4a23c6c6321d38b5d6fe3ddb2d16f129e014
+  
+  This issue is about refinements and alignment to upcoming product based changes, that will eventually make this config obsolete for AEM as a Cloud Service customers.
+  ... (3 more lines)
+
+Acceptance Criteria (1):
+--------------------------------------------------------------------------------
+  1. eventually make this config obsolete for AEM as a Cloud Service customers."
+adobe-aem-guides-wknd-239,security,adobe/aem-guides-wknd,2021-04-29T12:35:24Z,https://github.com/adobe/aem-guides-wknd/issues/239,Automatically push to WKND.site,enhancement,"<!--- STOP! Before you open an issue please search this repository's issues to see if it has already been reported. This helps reduce duplicate issues from being created. -->
+  <!--- SECURITY DISCLOSURE: If this is a security disclosure please follow the guidelines in CONTRIBUTING.md. This helps keep folks from accidentally releasing vulnerabilities before the maintainers get a chance to fix the issue. -->
+  
+  ### Expected Behaviour
+  Any push to this repository's master branch should be pushed to the wknd.site corresponding repository
+  
+  ### Actual Behaviour
+  Manual work is required to keep that target repository in sync
+  
+  ### Reproduce Scenario (including but not limited to)
+  ... (4 more lines)
+
+Acceptance Criteria (1):
+--------------------------------------------------------------------------------
+  1. be pushed to the wknd."
+adobe-aem-guides-wknd-237,traditional-website,adobe/aem-guides-wknd,2021-04-28T18:35:37Z,https://github.com/adobe/aem-guides-wknd/issues/237,"Remove PWA specific code from project, provided by product now",enhancement,"<!--- STOP! Before you open an issue please search this repository's issues to see if it has already been reported. This helps reduce duplicate issues from being created. -->
+  <!--- SECURITY DISCLOSURE: If this is a security disclosure please follow the guidelines in CONTRIBUTING.md. This helps keep folks from accidentally releasing vulnerabilities before the maintainers get a chance to fix the issue. -->
+  
+  ### Expected Behaviour
+  
+  The current WKND project has hard-coded manifest. Given that AEM now supports PWA configuration via Page Properties on sites build with Core Components - we should remove the hard-coded copy and replace it with properties.
+  
+  Want to use the PWA settings in the Page Properties to make the site installable. This project has a manifest in 
+  
+  https://github.com/adobe/aem-guides-wknd/blob/3524a6695e27181c46c089dffc80e223c0e6759d/ui.apps/src/main/content/jcr_root/apps/wknd/components/page/customheaderlibs.html
+  ... (4 more lines)
+
+Acceptance Criteria (1):
+--------------------------------------------------------------------------------
+  1. remove the hard-coded copy and replace it with properties."
+adobe-aem-guides-wknd-231,headless-api,adobe/aem-guides-wknd,2021-04-21T22:56:14Z,https://github.com/adobe/aem-guides-wknd/issues/231,Update Adventure Content Fragment Model properties to support new data types and properties,"enhancement, merged main","The Adventure Content Fragment Model and corresponding Content Fragments should be updated to support newly introduced data types and properties.
+  
+  * Migrate Group Size field from Single Line Text to Number
+  * Upgrade Enumeration type field (e.g., Adventure Type, Activity and Difficulty)
+  * Add currency validation to Price field and restricted allowed values to a valid currency (USD)
+  
+  ### Expected Behaviour
+  
+  N/A
+  
+  ... (23 more lines)
+
+Acceptance Criteria (1):
+--------------------------------------------------------------------------------
+  1. be updated to support newly introduced data types and properties."
+adobe-aem-guides-wknd-220,performance,adobe/aem-guides-wknd,2021-04-14T17:04:06Z,https://github.com/adobe/aem-guides-wknd/issues/220,Provide default cache control headers optimized high cache hit ratio on CDN,"enhancement, merged main","<!--- STOP! Before you open an issue please search this repository's issues to see if it has already been reported. This helps reduce duplicate issues from being created. -->
+  <!--- SECURITY DISCLOSURE: If this is a security disclosure please follow the guidelines in CONTRIBUTING.md. This helps keep folks from accidentally releasing vulnerabilities before the maintainers get a chance to fix the issue. -->
+  
+  ### Expected Behaviour
+  
+  Most of the site resources get delivered by the CDN, to achieve fast loading site globally. Changes published, should be served by the CDN within 10min after publishing.
+  
+  ### Actual Behaviour
+  
+  Most resources don't have cache control headers, hence a lot of content is served from origin, which makes the site load slow in a lot of ares in the world
+  ... (10 more lines)
+
+Acceptance Criteria (1):
+--------------------------------------------------------------------------------
+  1. be served by the CDN within 10min after publishing."
+adobe-aem-guides-wknd-199,other,adobe/aem-guides-wknd,2021-02-19T02:43:48Z,https://github.com/adobe/aem-guides-wknd/issues/199,Add Analyser Module,"enhancement, merged main","WKND Reference Site should align with the latest standards generated by AEM Project Archetype 25:
+  
+  https://github.com/adobe/aem-project-archetype/releases/tag/aem-project-archetype-25
+  
+  The major addition is the introduction of the Analyser module.
+
+Acceptance Criteria (1):
+--------------------------------------------------------------------------------
+  1. align with the latest standards generated by AEM Project Archetype 25:"
+adobe-aem-guides-wknd-196,security,adobe/aem-guides-wknd,2021-02-17T18:00:50Z,https://github.com/adobe/aem-guides-wknd/issues/196,Update to Core Components 2.14.0,enhancement,"<!--- STOP! Before you open an issue please search this repository's issues to see if it has already been reported. This helps reduce duplicate issues from being created. -->
+  <!--- SECURITY DISCLOSURE: If this is a security disclosure please follow the guidelines in CONTRIBUTING.md. This helps keep folks from accidentally releasing vulnerabilities before the maintainers get a chance to fix the issue. -->
+  
+  ### Expected Behaviour
+  
+  ### Actual Behaviour
+  
+  ### Reproduce Scenario (including but not limited to)
+  
+  #### Steps to Reproduce
+  ... (6 more lines)"
+adobe-aem-guides-wknd-192,headless-api,adobe/aem-guides-wknd,2021-02-14T23:46:10Z,https://github.com/adobe/aem-guides-wknd/issues/192,Enable GraphQL Endpoints,"enhancement, merged main","<!--- STOP! Before you open an issue please search this repository's issues to see if it has already been reported. This helps reduce duplicate issues from being created. -->
+  <!--- SECURITY DISCLOSURE: If this is a security disclosure please follow the guidelines in CONTRIBUTING.md. This helps keep folks from accidentally releasing vulnerabilities before the maintainers get a chance to fix the issue. -->
+  
+  ### Expected Behaviour
+  
+  The WKND Reference site should expose it's content via the GraphQL endpoints as described at: https://experienceleague.adobe.com/docs/experience-manager-cloud-service/assets/admin/graphql-api-content-fragments.html?lang=en#graphql-aem-endpoint
+  
+  This includes OSGi Configurations for:
+  
+  * CORS (Cross Origin Resource Sharing)
+  ... (9 more lines)
+
+Acceptance Criteria (1):
+--------------------------------------------------------------------------------
+  1. expose it's content via the GraphQL endpoints as described at: https://experienceleague."
+adobe-aem-guides-wknd-163,security,adobe/aem-guides-wknd,2020-11-07T02:16:22Z,https://github.com/adobe/aem-guides-wknd/issues/163,Include additional Content Fragments,"enhancement, merged main","<!--- STOP! Before you open an issue please search this repository's issues to see if it has already been reported. This helps reduce duplicate issues from being created. -->
+  <!--- SECURITY DISCLOSURE: If this is a security disclosure please follow the guidelines in CONTRIBUTING.md. This helps keep folks from accidentally releasing vulnerabilities before the maintainers get a chance to fix the issue. -->
+  
+  ### Expected Behaviour
+  
+  For demo purposes it would be nice to have more examples of Content Fragments.
+  
+  ### Actual Behaviour
+  There are only a handful of Adventures. It would be good to include a few more examples to the sample content."
+adobe-aem-guides-wknd-161,other,adobe/aem-guides-wknd,2020-11-04T17:30:14Z,https://github.com/adobe/aem-guides-wknd/issues/161,Include Vanity URL example,enhancement,"### Expected Behaviour
+  WKND code base should include an example of Vanity URLs
+  https://docs.adobe.com/content/help/en/experience-manager-65/managing/managing-further-reference/seo-and-url-management.html
+  
+  ### Actual Behaviour
+  
+  WKND reference site does not include this example.
+
+Acceptance Criteria (1):
+--------------------------------------------------------------------------------
+  1. include an example of Vanity URLs"
+adobe-aem-guides-wknd-160,traditional-website,adobe/aem-guides-wknd,2020-11-03T09:27:32Z,https://github.com/adobe/aem-guides-wknd/issues/160,Include localization example of Header/Footer experience fragment,"enhancement, merged main","Currently the header and footer have hardcoded paths in the language-independent templates (e.g. in https://github.com/adobe/aem-guides-wknd/blob/f7bee6b4cb31017fbb6c27027846ec7c926f4abe/ui.content/src/main/content/jcr_root/conf/wknd/settings/wcm/templates/content-page-template/structure/.content.xml#L19). What is your idea of supporting language-specific experience fragments then?
+  
+  I think the concept should be extended so that 
+  
+  - either a localized version of the experienced fragment is either automatically looked up 
+  - or the path should actually not come from the template's structure content but should be externalized in a context-aware configuration
+  
+  In any case I would heavily propose to keep the templates language independent.
+
+Acceptance Criteria (2):
+--------------------------------------------------------------------------------
+  1. be extended so that
+  2. actually not come from the template's structure content but should be externalized in a context-aware configuration"
+adobe-aem-guides-wknd-159,traditional-website,adobe/aem-guides-wknd,2020-11-02T15:03:03Z,https://github.com/adobe/aem-guides-wknd/issues/159,Update to Core Components 2.12.1,"enhancement, merged main","Core Components 2.12.0 has been released:
+  https://github.com/adobe/aem-core-wcm-components/releases/tag/core.wcm.components.reactor-2.12.0
+  
+  The WKND guide can be updated accordingly as needed."
+adobe-aem-guides-wknd-152,traditional-website,adobe/aem-guides-wknd,2020-10-15T17:55:08Z,https://github.com/adobe/aem-guides-wknd/issues/152,Use nt:unstructured instead of cq:Page for editable templates,enhancement,"The nodes at
+  
+  1. /conf/wknd/settings/wcm
+  1. /conf/wknd/settings/wcm/policies
+  1. /conf/wknd/settings/wcm/templates
+  
+  should be of type `nt:unstructured` instead of `cq:Page` as they don't have the `jcr:content` sub node required for `cq:Pages`
+
+Acceptance Criteria (1):
+--------------------------------------------------------------------------------
+  1. be of type `nt:unstructured` instead of `cq:Page` as they don't have the `jcr:content` sub node required for `cq:Pages`
+
+Technical Notes (1):
+--------------------------------------------------------------------------------
+  • /conf/wknd/settings/wcm/templates
+
+should be of type `nt:unstructured` instead of `cq:Page` as they don't have the `jcr:content` sub node required for `cq:Pages`"
+adobe-aem-guides-wknd-150,other,adobe/aem-guides-wknd,2020-10-07T20:31:46Z,https://github.com/adobe/aem-guides-wknd/issues/150,Updated WKND version release scheme,enhancement,"It would be nice if WKND project released using semantic versioning (https://semver.org/) to help indicate if a release is:
+  
+  1. A bug-fix release (build)
+  1. Introduces a new feature/implementation example (minor)
+  1. Is a substantial change that breaks backward compatibility w/ prior WKND version (such as 0.0.6 did) (major)"
+adobe-aem-guides-wknd-139,other,adobe/aem-guides-wknd,2020-09-26T20:26:16Z,https://github.com/adobe/aem-guides-wknd/issues/139,Update project to Archetype 24,enhancement,Update the project to match the dependencies and styles of AEM Project Archetype version 24
+adobe-aem-guides-wknd-128,traditional-website,adobe/aem-guides-wknd,2020-08-28T18:33:45Z,https://github.com/adobe/aem-guides-wknd/issues/128,[Data Layer] Custom Component example,"enhancement, merged main","The ImageList custom component should implement the data layer as an example of how to add the data layer to custom components.
+  
+  **Data schema**
+  
+  A component entry for the overall ImageList component:
+  
+  ```json
+  image-list-XXXX:
+    @type: ""wknd/components/image-list""
+  ```
+  ... (18 more lines)
+
+Acceptance Criteria (1):
+--------------------------------------------------------------------------------
+  1. implement the data layer as an example of how to add the data layer to custom components."
+adobe-aem-guides-wknd-8,other,adobe/aem-guides-wknd,2019-06-27T16:58:55Z,https://github.com/adobe/aem-guides-wknd/issues/8,Update to Core Components 2.5.0,enhancement,"The tutorial and code base should be updated to use the latest released verson of Core Components, which is 2.5.0
+
+Acceptance Criteria (1):
+--------------------------------------------------------------------------------
+  1. be updated to use the latest released verson of Core Components, which is 2."
+directus-directus-25929,other,directus/directus,2025-10-06T06:31:29Z,https://github.com/directus/directus/issues/25929,There is no option to default filter in collection,"Feature, Validation, Chore, Studio, Low Reach, Low Impact","i open the feature request but i think issue is more prominent place to get reach you guys.
+  
+  https://github.com/directus/directus/discussions/25928
+  
+  I think somebody who knows directus well can implmeent this easely."
+directus-directus-25863,traditional-website,directus/directus,2025-09-19T11:59:13Z,https://github.com/directus/directus/issues/25863,Optional Drawer View for Item Details,"Feature, Studio, UX / DX, Med Impact, High Reach","\[Directus - Option to Open Items in Drawer from a Layout - Watch Video\]([https://www.loom.com/share/6cb9c62dbc954ed99b5449ffaf60fbb3](https://www.loom.com/share/6cb9c62dbc954ed99b5449ffaf60fbb3))
+  
+  ![](https://uploads.linear.app/8d64f771-381d-4a46-a408-28b4fcc13d22/726f9852-013f-4343-9f1b-fba3fc053e29/63157fc3-8dbc-4e12-8926-e37bfb293172?signature=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXRoIjoiLzhkNjRmNzcxLTM4MWQtNGE0Ni1hNDA4LTI4YjRmY2MxM2QyMi83MjZmOTg1Mi0wMTNmLTQzNDMtOWYxYi1mYmEzZmMwNTNlMjkvNjMxNTdmYzMtOGRiYy00ZTEyLTg5MjYtZTM3YmZiMjkzMTcyIiwiaWF0IjoxNzU4ODIzNjYxLCJleHAiOjMzMzI5MzgzNjYxfQ.s7e5QzB22Gy9rj1TBvEGp6DJZtJ-3nTlW50jwsae8ME)
+  
+  When browsing items in different layouts (Map, Cards, Table, Kanban), clicking on an item takes you to the item detail page. This makes you lose your current context and position, so you have to navigate back and find where you were."
+helm-helm-31548,traditional-website,helm/helm,2025-11-20T14:45:19Z,https://github.com/helm/helm/issues/31548,Helm 4: Emits "unable to find exact version" even when no version was specified,"feature, good first issue","When running commands like `helm show chart` or `helm template`, a warning is emitted that suggests that no exact version can be found:
+  ```
+  helm show chart brigade/brigade
+  level=WARN msg=""unable to find exact version; falling back to closest available version"" chart=brigade requested="""" selected=1.10.0
+  ```
+
+  This warning does not show when using OCI references!
+
+  This is maybe a regression introduced with https://github.com/helm/helm/issues/31253 / https://github.com/helm/helm/commit/9e2d4680e11fc9f2fb209a290e465d56c79e8c72
+
+Acceptance Criteria (1):
+--------------------------------------------------------------------------------
+  1. be emitted and the latest version is used as described by the `--version` flag description:"
+helm-helm-31531,api-backend,helm/helm,2025-11-18T17:47:34Z,https://github.com/helm/helm/issues/31531,Support plugin update version flag,feature,"I'd like the `helm plugin update` command to support a `--version` flag like `helm plugin install`.
+
+  I'd like to be able to request a specific plugin version when updating."
+helm-helm-31529,traditional-website,helm/helm,2025-11-18T15:47:29Z,https://github.com/helm/helm/issues/31529,duplicate env vars are now treated as errors in helm v4,"help wanted, question/support, feature","I am now getting errors such as the following:
+  ```
+  > ~/code/helm/bin/helm install jesse .
+  ```
+  > Error: INSTALLATION FAILED: failed to create typed patch object (default/jesse-test; apps/v1, Kind=Deployment): .spec.template.spec.containers[name=""test""].env: duplicate entries for key [name=""SERVER_CONTEXT_PATH""]
+
+  Because there is a duplicate environment variable named `SERVER_CONTEXT_PATH` inside the manifest.
+
+  k8s in general allows you to specify duplicate environment variables. And when a duplicate env var exists, k8s will insert the bottom-most entry into the container.
+
+Acceptance Criteria (1):
+--------------------------------------------------------------------------------
+  1. insert the bottom-most entry into the container.
+
+Technical Notes (1):
+--------------------------------------------------------------------------------
+  • If this is expected behavior, can I get some advice on how I can change my helm charts to filter out the duplicates"
+helm-helm-31520,performance,helm/helm,2025-11-16T18:58:49Z,https://github.com/helm/helm/issues/31520,Helm 4 - debug logging is not detailed,"feature, good first issue","When we run upgrade/install with `--debug` flag, we expect to see detailed log information (at least in helm3 it was such)
+
+  If we do it for a chart which contains helm hooks like `preinstall` or `preupgrade` (for instance), output is like this:
+  ```shell
+  level=DEBUG msg=""setup up default downloader cache""
+  level=DEBUG msg=""found chart in cache"" id=fcb0b96755587496894e5a77040bdf7e4e37946b25153ba4417ea003a6ed2753
+  level=DEBUG msg=""number of dependencies in the chart"" dependencies=4
+  level=DEBUG msg=""number of dependencies in the chart"" dependencies=0
+  level=DEBUG msg=""number of dependencies in the chart"" dependencies=3
+  level=DEBUG msg=""number of dependencies in the chart"" dependencies=0
+  ... (5 more lines)"
+helm-helm-31505,traditional-website,helm/helm,2025-11-13T20:29:58Z,https://github.com/helm/helm/issues/31505,Helm4 upgrade with dry-run and server-side enabled doesn't catch errors,"help wanted, feature","Let's assume we have the following chart:
+  1) Chart.yaml
+  ```yaml
+  apiVersion: v2
+  name: helm4-test
+  version: 1.0.0
+  ```
+  2) templates/deployment.yaml
+  ```yaml
+  apiVersion: apps/v1
+  ... (34 more lines)
+
+Acceptance Criteria (2):
+--------------------------------------------------------------------------------
+  1. return error that `resources` is unknown field for `spec`.
+  2. `Helm4` with server-side work the same way?"
+helm-helm-31500,cms-web,helm/helm,2025-11-13T12:14:04Z,https://github.com/helm/helm/issues/31500,Multi type plugins,feature,"The old plugin system supports plugins with multiple feature, e.g. cli and getter at the same time:
+
+  * https://github.com/jkroepke/helm-secrets/blob/v4.6.11/plugin.yaml
+
+  With the new plugin system, a plugin can be only a CLI or a getter plugin, but not both at the same time.
+
+Acceptance Criteria (1):
+--------------------------------------------------------------------------------
+  1. not need to install 3 plugins separately."
+helm-helm-31498,traditional-website,helm/helm,2025-11-13T07:58:01Z,https://github.com/helm/helm/issues/31498,Helm WASM Plugin Support for Custom Template Functions,feature,"Helm should provide an **optional interface in Helm v4's Extism plugin runtime** that allows WASM plugins to register custom template functions directly into the templating system:[1]
+
+  - Add a plugin type (e.g., `wasm-template-functions`) that can expose additional template functions callable during chart rendering.
+  - Security is governed by an **allowlist/denylist** for functions configured in `plugins.yaml`.
+  - This system should support all Helm workflows (lint, template, install) without requiring wrapper binaries or external scripts.
+  - The interface should be fully backward compatible, with plugins only enabled via opt-in configuration.
+
+  This extension is needed for the following reasons:[12138](https://github.com/helm/helm/issues/12138)
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. provide an **optional interface in Helm v4's Extism plugin runtime** that allows WASM plugins to register custom template functions directly into the
+  2. support all Helm workflows (lint, template, install) without requiring wrapper binaries or external scripts.
+  3. be fully backward compatible, with plugins only enabled via opt-in configuration."
+helm-helm-31456,other,helm/helm,2025-11-04T18:38:14Z,https://github.com/helm/helm/issues/31456,Rename helm/.github/copilot-instructions.md to AGENTS.md,"feature, good first issue",Rename https://github.com/helm/helm/blob/main/.github/copilot-instructions.md to AGENTS.md per https://github.blog/changelog/2025-08-28-copilot-coding-agent-now-supports-agents-md-custom-instructions/ and https://agents.md/
+helm-helm-31454,other,helm/helm,2025-11-04T12:44:40Z,https://github.com/helm/helm/issues/31454,Convert pkg/cmd/load_plugins.go to slog,"feature, good first issue","Convert pkg/cmd/load_plugins.go to slog
+
+  _From comment by @robertsirc in https://github.com/helm/helm/pull/31427#discussion_r2470816680_"
+helm-helm-31449,other,helm/helm,2025-11-01T13:06:32Z,https://github.com/helm/helm/issues/31449,Add --no-headers flag to helm repo list,feature,"Add a new boolean flag `--no-headers` to `helm repo list` that suppresses the header row in the output.
+
+  Implementation is available in https://github.com/helm/helm/pull/31448.
+
+  Example:
+  ```
+  $ helm repo list
+  NAME          URL
+  charts        https://charts.helm.sh/stable
+  firstexample  http://firstexample.com
+  ... (1 more lines)"
+helm-helm-31439,other,helm/helm,2025-10-29T17:14:15Z,https://github.com/helm/helm/issues/31439,Add support for SOURCE_DATE_EPOCH in reproducible builds,"help wanted, feature","See https://github.com/helm/helm/pull/31323#issuecomment-3333144185
+
+  To enable someone to specify a date following the common environment variable name."
+helm-helm-31332,performance,helm/helm,2025-09-25T08:46:34Z,https://github.com/helm/helm/issues/31332,Enable testing to optionally use memory for the tempDir,feature,"When using t.TempDir() the temp directory is on the filesystem. For those who have a lot of RAM, memory could be used instead of the filesystem for a speedup in test execution. Core Go does not have this functionality but go github.com/spf13/afero can be used instead, optionally."
+helm-helm-31253,devops,helm/helm,2025-09-05T15:03:14Z,https://github.com/helm/helm/issues/31253,helm pull silently pulling a different chart version if the one specified doesn't exist,feature,"```
+  helm repo add rancher https://charts.rancher.io/
+  helm pull rancher/longhorn-crd --version 106.2.0+up1.8.2 --destination /tmp/
+  ls -l /tmp/longhorn*
+  -rw-r--r-- 1 rancher users 13883 Sep  5 16:27 /tmp/longhorn-crd-106.2.0+up1.8.1.tgz
+  ```
+
+  ### How can we reproduce it (as minimally and precisely as possible)?
+
+  ```
+  ... (5 more lines)
+
+Acceptance Criteria (1):
+--------------------------------------------------------------------------------
+  1. _fail_ if the version is not there"
+helm-helm-31144,cms-web,helm/helm,2025-08-17T22:40:12Z,https://github.com/helm/helm/issues/31144,[HIP-0026] implementation tracking issue (Helm 4 plugin system),"feature, v4.x, docs needed","Tracking issue for Helm 4 plugin system HIP implementation: https://github.com/helm/community/blob/main/hips/hip-0026.md#implementation-plan
+
+  ### Status
+  ### PRs to review
+  For full context, this branch contains complete work: https://github.com/scottrigby/helm/tree/plugin-system
+  This combined branch will stay updated with any changes made to the smaller subset PRs below (commit SHAs will change for this reason).
+
+  Because smaller PRs are encouraged for Helm generally, we are quickly breaking out the complete work branch above into smaller, more easily reviewable PRs, some of which must be merged sequentially:
+  1. #31142
+  2. #31145
+  ... (7 more lines)
+
+Acceptance Criteria (8):
+--------------------------------------------------------------------------------
+  1. Merge into upstream `main` before the Helm 4 pre-release (scheduled for Aug 31, 2025)
+  2. Clean up example plugins repo (move to helm github org?)
+  3. Collab with community plugin authors
+  4. Maintainer review and approval (@gjenkins8 and @scottrigby collaborated on the work, so needs another maintainer review)
+  5. stay updated with any changes made to the smaller subset PRs below (commit SHAs will change for this reason).
+  6. be merged sequentially:
+  7. Implementation complete and fully functional
+  8. Develop presentation"
+helm-helm-31112,devops,helm/helm,2025-08-06T11:10:18Z,https://github.com/helm/helm/issues/31112,`helm install --dry-run` should set the ClientOnly flag and disable cluster reachability checking.,feature,"**Note**: This would be fixed by https://github.com/helm/helm/pull/30833
+
+  When I run `helm install --dry-run` without being connected to a Kubernetes cluster, I'd like it to not fail. I specified `--dry-run` specifically because I want it to not attempt a connection to a cluster i.e. perform a dry run.
+
+  This would make it possible to validate the rendering of the `NOTES.txt` portion of a Helm chart in an automated test, which is something I'd like to do for my Helm chart."
+helm-helm-31098,devops,helm/helm,2025-07-28T14:35:38Z,https://github.com/helm/helm/issues/31098,--debug flag is ignored on helm pull,"help wanted, feature, good first issue","I ran `helm pull strimzi/strimzi-kafka-operator --version 0.46.1 --debug` and no output was printed.
+
+  I expected at least the HTTP level debug logs to be printed such as URL(s) called, redirects, proxy in use, etc.
+
+  ### How can we reproduce it (as minimally and precisely as possible)?"
+helm-helm-31075,api-backend,helm/helm,2025-07-18T11:47:07Z,https://github.com/helm/helm/issues/31075,Feature Request: An option for specifying registry TLS options in memory,feature,"Right now Flux is using `pkg/registry.LoginOptTLSClientConfig` which requires us to write files to source-controller disk, which is really bad for a controller. I'd like to have `LoginOptTLSClientConfigFromConfig` ??"
+helm-helm-31066,other,helm/helm,2025-07-16T12:33:04Z,https://github.com/helm/helm/issues/31066,hip-0025 implementation: sequence subcharts within a parent chart,"feature, Stale",Add Helm support for sequencing subcharts as per https://github.com/helm/community/blob/main/hips/hip-0025.md#chart-dependencies-example
+helm-helm-31014,traditional-website,helm/helm,2025-06-27T16:45:29Z,https://github.com/helm/helm/issues/31014,Lint `crds` directory,"help wanted, feature","`helm lint` will check the `crds/` directory only contains YAML files that define custom resource definitions (`kind: CustomResourceDefinition`) and are not templates.
+
+  https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/
+
+  `helm lint` does validate `templates/` contains valid template files, so I was a bit surprised to find that can put any arbitrary YAML files in `crds` and `helm lint` won't raise a warning or fail.
+
+Acceptance Criteria (1):
+--------------------------------------------------------------------------------
+  1. check the `crds/` directory only contains YAML files that define custom resource definitions (`kind: CustomResourceDefinition`) and are not templates."
+helm-helm-31012,other,helm/helm,2025-06-27T15:56:00Z,https://github.com/helm/helm/issues/31012,hip-0025: implementation tracking issue,"feature, v4.x","Tracking issue for https://github.com/helm/community/blob/main/hips/hip-0025.md#readiness
+
+Acceptance Criteria (2):
+--------------------------------------------------------------------------------
+  1. hip-0025 implementation: sequence resources within a single chart resources
+  2. hip-0025 implementation: readiness annotation"
+helm-helm-31008,other,helm/helm,2025-06-26T15:48:04Z,https://github.com/helm/helm/issues/31008,Return release labels in the GetMetadata() function,feature,"Release object has the [Labels field](https://github.com/helm/helm/blob/main/pkg/release/v1/release.go#L44), which is saved as part of metadata of the release.
+  But [metadata object](https://github.com/helm/helm/blob/main/pkg/action/get_metadata.go#L36) does not have this field, so doesn't pass it on [fetch](https://github.com/helm/helm/blob/main/pkg/action/get_metadata.go#L67) action.
+
+  Could wee add Labels to the Metadata struct and return them?
+
+  If we store something in metadata, it would be logical to have a method to get this info without fetching the whole release object. It could be very useful in some cases, like storing the checksum of the manifests in a label."
+learningequality-kolibri-13425,traditional-website,learningequality/kolibri,2025-05-27T15:09:40Z,https://github.com/learningequality/kolibri/issues/13425,Learner and Coach beta experience for Courses and Pre-tests/Post-tests,Epic,"<img height=""20px"" src=""https://i.imgur.com/c7hUeb5.jpeg"">
+
+  ? **This issue is not open for contribution. Visit <a href=""https://learningequality.org/contributing-to-our-open-code-base/"" target=""_blank"">Contributing guidelines</a>** to learn about the contributing process and how to find suitable issues.
+
+  <img height=""20px"" src=""https://i.imgur.com/c7hUeb5.jpeg"">
+
+Acceptance Criteria (5):
+--------------------------------------------------------------------------------
+  1. use search recommendations to automatically recommend comment.
+  2. be released as an MVP (although there might be some ecosystem-level prerequisite work, particularly around the data structures, that needs to be compl
+  3. do this on LE for the pilot program using a script, and/or perhaps enabling channels to be turned into courses at the level of a folder, with nested f
+  4. focus on the Studio admin experience of actually creating the course (vs.
+  5. be considered ""part of"" the Kolibri aspects of this project."
+learningequality-kolibri-13391,devops,learningequality/kolibri,2025-05-12T15:40:47Z,https://github.com/learningequality/kolibri/issues/13391,First time user onboarding workflow,Epic,================================================================================
+learningequality-kolibri-13390,traditional-website,learningequality/kolibri,2025-05-12T15:34:05Z,https://github.com/learningequality/kolibri/issues/13390,Allow HTML5 articles and general inclusion of rich text in HTML in content rendering,Epic,"<img height=""20px"" src=""https://i.imgur.com/c7hUeb5.jpeg"">
+
+  ? **This issue is not open for contribution. Visit <a href=""https://learningequality.org/contributing-to-our-open-code-base/"" target=""_blank"">Contributing guidelines</a>** to learn about the contributing process and how to find suitable issues.
+
+  <img height=""20px"" src=""https://i.imgur.com/c7hUeb5.jpeg"">
+
+Acceptance Criteria (5):
+--------------------------------------------------------------------------------
+  1. help enforce other aspects, such as appropriate header levels, tab order, etc.
+  2. serve as the foundation for displaying rich content created in the planned rich text editor, using HTML5 as the basis for the rich text documents.
+  3. know when the project is done*
+  4. also be leveraged to display inlined HTML elements in QTI assessments
+  5. sanitize HTML to prevent XSS attacks, CSS overrides, and any use of Javascript while preserving legitimate formatting"
+dbt-labs-dbt-core-12255,api-backend,dbt-labs/dbt-core,2025-12-04T17:03:59Z,https://github.com/dbt-labs/dbt-core/issues/12255,"[Feature] for python modles, user can add their own log lines (including custom variables) and we will display them in the dbt CLI","enhancement, triage, python_models","### Is this your first time submitting a feature request?
+  
+  - for python modles, user can add their own log lines (including custom variables) and we will display them in the dbt CLI
+  - similar to what we support with Jinja {{ log() }}
+
+Acceptance Criteria (4):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)
+  4. display them in the dbt CLI"
+dbt-labs-dbt-core-12254,api-backend,dbt-labs/dbt-core,2025-12-04T17:01:07Z,https://github.com/dbt-labs/dbt-core/issues/12254,[Feature] support ephemeral models + python models,"enhancement, triage, python_models","### Is this your first time submitting a feature request?
+  
+  - python models that reference ephemeral SQL models
+  - python models that are themselves ephemeral
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+dbt-labs-dbt-core-12248,performance,dbt-labs/dbt-core,2025-12-02T22:26:18Z,https://github.com/dbt-labs/dbt-core/issues/12248,[Feature] allow incremental_predicates to support self-referential subqueries,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  https://dev.to/superpayments/improve-dbt-incremental-performance-on-snowflake-using-custom-incremental-strategy-3ag3
+  
+  User wants to limit the incremental logic to only consider the last 24 hours, but [incremental_predicates](https://docs.getdbt.com/docs/build/incremental-strategy#about-incremental_predicates) doesn't support self-referential subqueries out-of-the-box, so they  inserted their own string substitution logic in the middle by using a [custom incremental strategy](https://docs.getdbt.com/docs/build/incremental-strategy#custom-strategies).
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+dbt-labs-dbt-core-12193,api-backend,dbt-labs/dbt-core,2025-11-23T23:24:40Z,https://github.com/dbt-labs/dbt-core/issues/12193,[Feature] Support `DBT_SELECTOR` as environment variable for `--selector`,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  How about supporting `DBT_SELECTOR` as an environment variable for `--selector`?
+  
+  Looks like it could make sense, and makes using predefined selectors a little smoother in some setups.
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+dbt-labs-dbt-core-12189,api-backend,dbt-labs/dbt-core,2025-11-20T13:59:05Z,https://github.com/dbt-labs/dbt-core/issues/12189,[Feature] show delete and insert times on incremental logs,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  Add, delete, and insert times on incremental DBT logs, currently showing:
+  
+  INFO - 17:24:45  Running with dbt=1.10.13
+  INFO - 17:24:45  Registered adapter: redshift=1.9.5
+  INFO - 17:24:46  Found 7 models, 17 sources, 524 macros
+  INFO - 17:24:46
+  INFO - 17:24:46  Concurrency: 4 threads (target='dev')
+  INFO - 17:24:46
+  ... (8 more lines)
+
+Acceptance Criteria (4):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)
+  4. help debug long-running DBTs, on databases that are slow to delete records and/or identify ways to improve the DBT, looking only at the main logs."
+dbt-labs-dbt-core-12174,devops,dbt-labs/dbt-core,2025-11-17T18:52:23Z,https://github.com/dbt-labs/dbt-core/issues/12174,"[Feature] Source freshness/timeliness by pipeline run (semantics), not column value","enhancement, triage","### Is this your first time submitting a feature request?
+  
+  Right now, `dbt source freshness` works by checking the maximum value of a timestamp column within the source table. This works well when measuring the recency of the table's most recent record, and it aligns well with DBT's definition of freshness:
+  
+  > A freshness block is used to define the acceptable amount of time between the most recent record, and now, for a table to be considered ""fresh"".
+  >
+  > https://docs.getdbt.com/reference/resource-properties/freshness?utm_source=chatgpt.com#definition
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+dbt-labs-dbt-core-12164,api-backend,dbt-labs/dbt-core,2025-11-13T15:31:38Z,https://github.com/dbt-labs/dbt-core/issues/12164,[Feature] model versions in pre-release shouldn't trigger contract violation failures,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  When developing a new version of a model, it's helpful to keep contract enforcement to `true` so you can address any contract violations in development. However, if you then push this new (still pre-release) version to a higher environment you cannot make any ""breaking"" changes without dbt failing due to contract violations (`While comparing to previous project state, dbt detected a breaking change to an enforced contract`).
+  
+  In semantic versioning, breaking changes in pre-release versions are considered acceptable because a pre-release version signals that it's not ready for production use. It would be fine if dbt _warned_ of breaking changes in pre-release versions, but it shouldn't throw a hard failure.
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+dbt-labs-dbt-core-12250,traditional-website,dbt-labs/dbt-core,2025-11-03T09:26:30Z,https://github.com/dbt-labs/dbt-core/issues/12250,[FEAT] Cross dbt Core and Fusion - Support overloaded UDFs,enhancement,"**Is your feature request related to a problem? Please describe.**
+  
+  _I don't know where to raise this issue as it relates to the dbt language more than Core/Fusion._
+  
+  dbt should support overloaded UDFs ; the ability to define different UDFs with the same name but with different argument numbers and types
+  For example, [Snowflake supports this](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions).
+
+Acceptance Criteria (6):
+--------------------------------------------------------------------------------
+  1. SQL Understanding Features
+  2. Adapter or Database Driver Features
+  3. support overloaded UDFs ; the ability to define different UDFs with the same name but with different argument numbers and types
+  4. dbt language
+  5. CLI Features
+  6. VS Code extension"
+dbt-labs-dbt-core-12130,api-backend,dbt-labs/dbt-core,2025-10-30T10:32:16Z,https://github.com/dbt-labs/dbt-core/issues/12130,[Feature] Topological sort of nodes in dbt list,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  It would be really cool if the results of `dbt list` were topologically sorted, rather than alphabetical
+  
+  https://github.com/dbt-labs/dbt-core/blob/785304732f959ec15ebb285430fcca876c1a525a/core/dbt/task/list.py#L69-L72
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+dbt-labs-dbt-core-12123,api-backend,dbt-labs/dbt-core,2025-10-28T15:11:59Z,https://github.com/dbt-labs/dbt-core/issues/12123,[UDFs] user-defined AGGREGATE functions,"enhancement, user docs","### Is this your first time submitting a feature request?
+  
+  ### Are you interested in contributing this feature?
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+dbt-labs-dbt-core-12122,other,dbt-labs/dbt-core,2025-10-28T14:37:22Z,https://github.com/dbt-labs/dbt-core/issues/12122,[Feature] be able to set snowflake_warehouse for metadata queries,enhancement,"Currently, you can configure the `snowflake_warehouse` to be used for certain models / folders-of-models in your project ([docs](https://docs.getdbt.com/reference/resource-configs/snowflake-configs#configuring-virtual-warehouses)).
+  
+  What if there was a way to configure this for the metadata queries that dbt runs under the hood?
+  
+  > Any thoughts on just configuring a specific warehouse for all the ""light"" work?
+  In our example with Snowflake compute is done by each minute. Even if you only use the warehouse for ms, you're charged for that entire minute. Additionally, if you are using larger warehouses, the credits double per tier.
+  While these background tasks can be handled on a XSMALL at 1 credit/minute, the actual jobs are configured from Medium - XLarge (4/8/16 credits respectively). By using a dedicated smallest sized warehouse for the lightweight queries I suspect we can minimize the compute coat load
+
+Acceptance Criteria (1):
+--------------------------------------------------------------------------------
+  1. this be used for `introspective queries` too?"
+dbt-labs-dbt-core-12113,api-backend,dbt-labs/dbt-core,2025-10-24T09:09:02Z,https://github.com/dbt-labs/dbt-core/issues/12113,[Feature] Add --project-id flag as a global flag,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  **Problem:** Currently I did not find a way to work with multiple dbt cloud projects from the same dbt cli.
+  In this specific case we have the same repository however there are different geos I want to run the code against.
+  Additonally, I want to enable `pre-commit` to run checks against multiple projects utilizing the same repo instead.
+  
+  **Feature:** Adding a `--project-id` optional global flag to provide dbt cloud project_id during run-time and if there is already `project-id` in `dbt_project.yml` use the one provided via the flag.
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+dbt-labs-dbt-core-12109,api-backend,dbt-labs/dbt-core,2025-10-23T13:20:39Z,https://github.com/dbt-labs/dbt-core/issues/12109,[Feature] Development / optional packages,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  Currently, all packages listed in `packages.yml` are installed when running `dbt deps`, but some packages are only needed for development, like `codegen` or `dbt_project_evaluator`.
+  
+  Just like python projects can have optional or development dependencies, optional packages in dbt would allow to selectively install packages, for instance only the ones that are needed to run `dbt build` in production.
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+dbt-labs-dbt-core-12107,headless-api,dbt-labs/dbt-core,2025-10-23T00:28:50Z,https://github.com/dbt-labs/dbt-core/issues/12107,[Feature] Support automatic group inheritance in singular data test,"enhancement, triage, dbt tests","### Is this your first time submitting a feature request?
+  
+  dbt currently supports:
+  1. Specifying a group.
+  2. Declaring that a model belongs to a group (a model can belong to only 1 group).
+  
+  Additionally, when declaring model level generic test - those generic test automatically inherit the group of the model. Let's see this in action:
+
+Acceptance Criteria (4):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)
+  4. not be tagged with `""group"": ""marketing""`.
+
+Technical Notes (2):
+--------------------------------------------------------------------------------
+  • }
+```
+
+We can see that the test node `test.analytics.not_null_foo_id` inherited the model's group
+  • It's not obvious which group to ""pick"" and you also cannot have more than 1 group per node"
+dbt-labs-dbt-core-12106,api-backend,dbt-labs/dbt-core,2025-10-22T19:37:59Z,https://github.com/dbt-labs/dbt-core/issues/12106,[Feature] dbt should load env vars from root `.env` file,enhancement,"### Is this your first time submitting a feature request?
+  
+  See:
+  - https://github.com/dbt-labs/dbt-fusion/issues/946
+  
+  Definition of done:
+  - Load env vars from root-level `.env` file on startup
+  - Env vars set in shell should take precedence
+  - Add `.env` to the default `.gitignore` file produced by `dbt init`
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+dbt-labs-dbt-core-12103,api-backend,dbt-labs/dbt-core,2025-10-22T16:11:49Z,https://github.com/dbt-labs/dbt-core/issues/12103,[Feature] Add `node_info` block to `LogTestResult`,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  Sometimes it's good to have info about nodes. This is one of those times: when a test succeeds for fails the people wish to get a more fine grained status (i.e. `node_status`) or other such metadata.
+  
+  ### Are you interested in contributing this feature?
+
+Acceptance Criteria (4):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)
+  4. update this event to include node_info."
+dbt-labs-dbt-core-12095,api-backend,dbt-labs/dbt-core,2025-10-16T23:42:43Z,https://github.com/dbt-labs/dbt-core/issues/12095,[Feature] Ref Push-downs,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  A common mistake by junior Analytics Engineers is to `ref` to the 'most developed' version of a granularity, like using `ref(""fct_orders"")`  regardless of what columns they actually need to access.
+  
+  The best practice is to always ref the *earliest* version of a model (so long as it fits the granularity and column-set), so maybe `stg_orders` in this case.
+
+Acceptance Criteria (5):
+--------------------------------------------------------------------------------
+  1. be easy to reason about.
+  2. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)
+  3. I have searched the existing issues, and I could not find an existing issue for this feature
+  4. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  5. wait on `fct_orders` when only 10 of them actually need the new columns/grain computed there."
+dbt-labs-dbt-core-12092,api-backend,dbt-labs/dbt-core,2025-10-15T13:53:30Z,https://github.com/dbt-labs/dbt-core/issues/12092,[Feature] Support testing that compilation error is raised in unit tests,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  #### Context
+  I'm writing tests for a macro using an intermediate model that calls the macro. The macro includes some logic to validate input arguments. It calls `exceptions.raise_compiler_error` if the args are deemed invalid. Currently there is no direct way to test this in unit tests. So the test logic must avoid these cases.
+  
+  #### Feature Description
+  Ideally there would be a way to specify something like:
+  ```yml
+  expect:
+    error:
+  ... (6 more lines)
+
+Acceptance Criteria (5):
+--------------------------------------------------------------------------------
+  1. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)
+  2. I have searched the existing issues, and I could not find an existing issue for this feature
+  3. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  4. be a control-flow-breaking statement.
+  5. become a more common use case for everyone as unit testing gets more adoption."
+dbt-labs-dbt-core-12091,api-backend,dbt-labs/dbt-core,2025-10-13T03:48:38Z,https://github.com/dbt-labs/dbt-core/issues/12091,[Feature] `persist_docs` without re-running model SQL,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  The [persist_docs](https://docs.getdbt.com/reference/resource-configs/persist_docs) flag is great.
+  
+  The only problem is that when I make a documentation update, I have to `dbt run` the model to have it actually update in the `information_schema` (Snowflake).
+
+Acceptance Criteria (5):
+--------------------------------------------------------------------------------
+  1. be a way to update *only* the model/table's description and column descriptions without actually re-running the whole model.
+  2. assist in context management workflows where the goal is primarily to improve documentation.
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)
+  4. I have searched the existing issues, and I could not find an existing issue for this feature
+  5. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion"
+dbt-labs-dbt-core-12090,ecommerce-cif,dbt-labs/dbt-core,2025-10-13T03:37:28Z,https://github.com/dbt-labs/dbt-core/issues/12090,[Feature] Support seeding of markdown files,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  dbt Seeds enable developers to store CSVs in their dbt codebase and persist them into the database.
+  
+  The `persist_docs` functionality is somewhat similar, in that it table and column descriptions from the codebase, to the database (the `information_schema`).
+
+Acceptance Criteria (6):
+--------------------------------------------------------------------------------
+  1. borrow from Cursor's use of `.
+  2. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)
+  3. I have searched the existing issues, and I could not find an existing issue for this feature
+  4. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  5. data teams organize their data documentation?
+  6. 'ladder down' to this context, so it should live in the same place."
+dbt-labs-dbt-core-12086,api-backend,dbt-labs/dbt-core,2025-10-08T18:34:56Z,https://github.com/dbt-labs/dbt-core/issues/12086,[Feature] Support overriding target global variable in unit tests,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  Allow users to override target global variable for purposes of unit testing. Would allow manipulation of properties like `target.name` and `target.warehouse` for a particular unit test. Either allow overriding individual attributes or providing a whole-object replacement via dict specified through yaml.
+  
+  Never use global variables like this directly, instead using a mediating macro called something like `get_target_profile_config`. Then override its return value. It works but if there's already a lot of code using the global, it requires migrating a lot of code.
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+dbt-labs-dbt-core-12069,api-backend,dbt-labs/dbt-core,2025-10-02T23:48:41Z,https://github.com/dbt-labs/dbt-core/issues/12069,[Feature] Flag when incremental models are run with full-refresh,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  There is currently no way to tell if an incremental model is being run with `--full-refresh`, which can be especially troublesome when the full refresh is set in the `dbt_project.yml` via something like the below
+  ```yaml
+    my_project:
+      marts:
+        +full_refresh: ""{{ target.name != 'prod' }}""
+  ```
+  
+  The logs just show the below with no mention of full refresh, and they actually seem to imply the opposite, stating that an incremental model was created when in reality a full-refreshed incremental model was created which is very different. 
+  ... (8 more lines)
+
+Acceptance Criteria (5):
+--------------------------------------------------------------------------------
+  1. be a line in the logs saying something like
+  2. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)
+  3. I have searched the existing issues, and I could not find an existing issue for this feature
+  4. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  5. make development easier for anyone working on incremental models"
+dbt-labs-dbt-core-12058,api-backend,dbt-labs/dbt-core,2025-09-27T03:38:41Z,https://github.com/dbt-labs/dbt-core/issues/12058,[Feature] Snowflake Transient Dynamic Table,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  There is no option to create a Snowflake Transient Dynamic Table using Registered adapter: snowflake=1.10.0.
+  
+  ### Are you interested in contributing this feature?
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+dbt-labs-dbt-core-12050,api-backend,dbt-labs/dbt-core,2025-09-25T00:17:54Z,https://github.com/dbt-labs/dbt-core/issues/12050,OOB option for SCD Type 2 tables that respects the source table timestamp field.,"enhancement, triage","### Feature Request
+  **OOB SCD Type 2 implementation that respects source table timestamp fields**. This would address the current limitations of existing DBT versions and workarounds by providing a robust solution for handling `dbt_valid_from` and `dbt_valid_to` fields (or equivalent) according to source table timestamps, including proper end dates for deleted records, and ideally supporting full-refresh backfill and non-consecutive date runs without inconsistencies.
+  
+  **Requirements**:
+  1. Fields `dbt_valid_from` and `dbt_valid_to` (or equivalent) must correspond to timestamp values within the source table for which the tracked dimensions were valid.
+  2. End dates for deleted records must correspond to the maximum timestamp value within the source table for which the tracked dimensions are valid.
+  
+  **Nice to Have**:
+  1. Full-refresh backfill on first run.
+  2. Model may run for non-consecutive dates (catch-up behavior) without requiring backfill or introducing data inconsistencies.
+
+Acceptance Criteria (8):
+--------------------------------------------------------------------------------
+  1. correspond to timestamp values within the source table for which the tracked dimensions were valid.
+  2. be filled-in for the preexisting records (`DBT_INTERNAL_DEST`) having a null “valid to” and matching the tracked dimensions captured in the new record
+  3. throw duplicate records error on merge).
+  4. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)
+  5. I have searched the existing issues, and I could not find an existing issue for this feature
+  6. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  7. correspond to the maximum timestamp value within the source table for which the tracked dimensions are valid.
+  8. be excluded from the `unique_key`."
+dbt-labs-dbt-core-12045,ecommerce-cif,dbt-labs/dbt-core,2025-09-23T20:44:23Z,https://github.com/dbt-labs/dbt-core/issues/12045,[Feature] Enable materializing seeds as iceberg tables,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  Currently, seeds are only ever materialized as tables (not views, materialized views, dynamic tables, etc).
+  
+  This feature request is that they can optionally be materialized with an [Iceberg catalog](https://docs.getdbt.com/docs/mesh/iceberg/snowflake-iceberg-support) in `dbt_project.yml` or a `whatever.yml` file.
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+dbt-labs-dbt-core-12034,api-backend,dbt-labs/dbt-core,2025-09-19T17:39:39Z,https://github.com/dbt-labs/dbt-core/issues/12034,[Feature] introduce state:modified.compiled,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  I would love select models for which only the compiled sql has changed. I think this would be a huge win, since often a model file change does not imply a change in the SQL reprensentation. Think of config declared tags, indexes which may run as a post_hook, or a macro name change. I propose to add a new selector for comparing compiled and normalized sql of the models. The selector would look like `--select ""state:modified.compiled""`.
+  
+  ```py
+      # file: contracts/graph/nodes.py
+      def same_compiled(self, other) -> bool:
+          """"""Compare compiled SQL content between two nodes
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)
+
+Technical Notes (2):
+--------------------------------------------------------------------------------
+  • the self Node is not compiled, so compiled_code = None
+  • Yes, I need to figure out how to use compiled node for dbt run/build/ls etc"
+dbt-labs-dbt-core-12033,headless-api,dbt-labs/dbt-core,2025-09-19T14:05:05Z,https://github.com/dbt-labs/dbt-core/issues/12033,[Feature] Add unit tests to the Jinja `graph` object,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  Unit tests can be found in `manifest.json`, but they are not in the `graph` object.
+  
+  This means that we can't do checks on those in dbt-project-evaluator (related issue: https://github.com/dbt-labs/dbt-project-evaluator/issues/415#issuecomment-3312141153)
+
+Acceptance Criteria (4):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)
+  4. add unit tests to the graph."
+dbt-labs-dbt-core-12023,other,dbt-labs/dbt-core,2025-09-17T14:55:33Z,https://github.com/dbt-labs/dbt-core/issues/12023,[Feature] Implement 'docs' config for sources,"enhancement, triage","Currently, the 'docs' property is not working for sources.
+  
+  <img width=""1291"" height=""460"" alt=""Image"" src=""https://github.com/user-attachments/assets/b8383811-7a0e-4200-ad66-5517b157a70c"" />
+  Source: https://docs.getdbt.com/reference/resource-configs/docs
+  
+  It would be a great value for my project to add it.
+  Best thing would be the implementation of the 'show' property, but 'node_color' would be useful as well.
+
+Technical Notes (2):
+--------------------------------------------------------------------------------
+  • ### Describe the feature
+
+Currently, the 'docs' property is not working for sources
+  • Best thing would be the implementation of the 'show' property, but 'node_color' would be useful as well"
+dbt-labs-dbt-core-12022,api-backend,dbt-labs/dbt-core,2025-09-17T09:23:12Z,https://github.com/dbt-labs/dbt-core/issues/12022,[Feature] Include new state selector for `meta`,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  In this document https://docs.getdbt.com/reference/node-selection/methods#state, a `state:modified.configs` selector is included, which is helpful to tweak executions based on state.
+  
+  However, it is often the case that one has a `meta:` section within the config and this metadata may or may not actually impact the behaviour of the model (e.g. I may have a `owner` of the model in the `meta` section and if the owner of the model changes I don't want to reprocess it as the behaviour of the model did not change).
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+dbt-labs-dbt-core-12021,api-backend,dbt-labs/dbt-core,2025-09-16T22:29:12Z,https://github.com/dbt-labs/dbt-core/issues/12021,[Feature] Allow setting the data test `where` config on the model level,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  dbt should support setting the `where` test config (https://docs.getdbt.com/reference/resource-configs/where#examples) on the model level - e.g.
+  
+  ```yaml
+  models:
+    - name: foo
+      config:
+        where: ""date_column = current_date""
+      columns:
+  ... (9 more lines)
+
+Acceptance Criteria (4):
+--------------------------------------------------------------------------------
+  1. support setting the `where` test config (https://docs.
+  2. I have searched the existing issues, and I could not find an existing issue for this feature
+  3. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  4. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+dbt-labs-dbt-core-12012,api-backend,dbt-labs/dbt-core,2025-09-12T12:42:33Z,https://github.com/dbt-labs/dbt-core/issues/12012,[Feature] `config.meta_get` and `config.meta_require`,enhancement,"### Is this your first time submitting a feature request?
+  
+  In dbt Core v1.10, we have begun raising deprecation warnings for top-level configs that aren't Official dbt Configs:
+  
+  https://docs.getdbt.com/reference/deprecations#customkeyinconfigdeprecation
+
+Acceptance Criteria (5):
+--------------------------------------------------------------------------------
+  1. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)
+  2. migrate them to nested fields within meta.
+  3. I have searched the existing issues, and I could not find an existing issue for this feature
+  4. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  5. give them utilities that make these updates as simple as find-replace."
+dbt-labs-dbt-core-11996,headless-api,dbt-labs/dbt-core,2025-09-09T17:29:20Z,https://github.com/dbt-labs/dbt-core/issues/11996,[Feature] Project-level `meta` in `dbt_project.yml`,enhancement,"### Is this your first time submitting a feature request?
+  
+  As a data team lead / project maintainer, I have some custom structured metadata fields — related to ownership, CI/CD, or anything else — that I want to store in a `meta` field in `dbt_project.yml`.
+  
+  All dbt resources support the `meta` config, but there's currently no way to specify top-level `meta` for the entire project, without configuring/propagating to every single resource.
+
+Acceptance Criteria (4):
+--------------------------------------------------------------------------------
+  1. parse this without throwing an error:
+  2. I have searched the existing issues, and I could not find an existing issue for this feature
+  3. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  4. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+dbt-labs-dbt-core-11972,other,dbt-labs/dbt-core,2025-08-28T16:09:55Z,https://github.com/dbt-labs/dbt-core/issues/11972,[UDFs] New `function` macro for utilizing functions in other nodes,"enhancement, user docs, UDFs, P1","We _shouldn't_ be using `ref` to utilize functions in other nodes. A function is inherently _different_ from a table/view/etc. A function is a callable in the data warehouse, a table/view is a relational object with columns in the data warehouse. As such, functions _should_ not ref-able. Instead, they should have a separate macro `function` for getting functions. This makes it clearer to the user what is happening, ""are you getting a table or a function"", and it makes it easier for us to do appropriate compilation.
+  
+  * `ref` does not work for getting functions
+  * `function` macro is available for getting functions
+
+Acceptance Criteria (4):
+--------------------------------------------------------------------------------
+  1. have a separate macro `function` for getting functions.
+  2. backports be required?
+  3. `function` macro is available for getting functions
+  4. `ref` does not work for getting functions"
+dbt-labs-dbt-core-11967,other,dbt-labs/dbt-core,2025-08-27T21:11:58Z,https://github.com/dbt-labs/dbt-core/issues/11967,[UDFs] Ability to list function nodes,"enhancement, UDFs, P0","### Housekeeping
+  
+  - [x] I am a maintainer of dbt-core
+  
+  ### Short description
+  
+  Function nodes should show up when running list
+  
+  ### Acceptance criteria
+  
+  ... (17 more lines)
+
+Acceptance Criteria (2):
+--------------------------------------------------------------------------------
+  1. show up when running list
+  2. backports be required?"
+dbt-labs-dbt-core-11965,other,dbt-labs/dbt-core,2025-08-27T14:13:59Z,https://github.com/dbt-labs/dbt-core/issues/11965,[UDFs] Core handles lifecycle of UDFs,"enhancement, UDFs, P0","When there is a UDF in the DAG, core needs to work with dbt-adapters to ensure the UDF is created in the data warehouse.
+  
+  * After doing a `dbt run` in a project with a UDF, the UDF is callable in the data warehouse
+
+Acceptance Criteria (2):
+--------------------------------------------------------------------------------
+  1. backports be required?
+  2. Core creates UDFs during `run` and `build` commands"
+dbt-labs-dbt-core-11964,other,dbt-labs/dbt-core,2025-08-27T14:03:34Z,https://github.com/dbt-labs/dbt-core/issues/11964,[Feature] Support the graph operator "+" in the `dbt show` command,"enhancement, wontfix","The dbt show command does not support the use of the ""+"" graph operator (or, presumably, any of the graph operators).
+  
+  The dbt show command supports the use of graph operators or a syntax error is raised telling you that you cannot use graph operators with dbt show (with docs updated correspondingly).
+  
+  When running `dbt show --select +my_model` I would expect `my_model` and all ancestor models to be compiled from source and the query run. Instead, only `my_model` is previewed and the `+` is ignored.
+
+Acceptance Criteria (5):
+--------------------------------------------------------------------------------
+  1. be reflected in the docs that `dbt show` does not support the use of graph operators in the `--select`.
+  2. I believe this is a new bug in dbt-core
+  3. see only the customers model preview and nothing for the parent model stg_customer:
+  4. I have searched the existing issues, and I could not find an existing issue for this bug
+  5. encounter the error:"
+dbt-labs-dbt-core-11963,other,dbt-labs/dbt-core,2025-08-26T21:19:24Z,https://github.com/dbt-labs/dbt-core/issues/11963,[UDFs] Support for referencing a function from a node,"enhancement, user docs, UDFs, P0","UDFs having their lifecycle simply managed by dbt-core is nice, this allows for the logic of a UDF to be kept in dbt and have a history of its development with git. We, however, want to go further. You should be able to reference a UDF _from_ a model. With this, suddenly there is insight in the DAG of _which_ UDFs a model depends on! This also means that when a UDF changes, you can rerun the things that _depend_ on the UDF that was changed.
+  
+  Referencing a UDF in a model would look like
+  ```sql
+  # circle_areas.sql
+  SELECT id, {{ ref(""area_of_circle"") }}(radius) AS circle_area FROM {{ ref(""circles"") }}
+  ```
+  
+  Referencing a function in a model:
+  * Adds the function to the depends on of the model
+  ... (1 more lines)
+
+Acceptance Criteria (2):
+--------------------------------------------------------------------------------
+  1. be able to reference a UDF _from_ a model.
+  2. backports be required?"
+dbt-labs-dbt-core-11962,other,dbt-labs/dbt-core,2025-08-26T20:54:31Z,https://github.com/dbt-labs/dbt-core/issues/11962,[UDFs] Can select functions by file path,"enhancement, user docs, UDFs, P2","dbt should support selecting functions by file path, like `dbt run --select ""path/to/my/function.sql""`
+
+Acceptance Criteria (2):
+--------------------------------------------------------------------------------
+  1. backports be required?
+  2. support selecting functions by file path, like `dbt run --select ""path/to/my/function."
+dbt-labs-dbt-core-11961,other,dbt-labs/dbt-core,2025-08-26T20:51:24Z,https://github.com/dbt-labs/dbt-core/issues/11961,[UDFs] Ability to select functions by name,"enhancement, user docs, UDFs, P1","Say you discovered a bug in _one_ of your UDFs. You fix the bug, and you want to replace the UDF in the data warehouse. You should be able to do that by selecting the UDF by name, something like `dbt run --select my_udf`. But lets take it a step further, you also want to update all the models that use that UDF, which makes sense. Then you should be able to do something like `dbt run --select my_udf+`
+  
+  * functions can be selected by name
+  * selection modifiers like `+` do what they're supposed to with functions
+
+Acceptance Criteria (5):
+--------------------------------------------------------------------------------
+  1. be able to do that by selecting the UDF by name, something like `dbt run --select my_udf`.
+  2. backports be required?
+  3. functions support selection by name
+  4. be able to do something like `dbt run --select my_udf+`
+  5. functions select supports selection modifiers like `+`"
+dbt-labs-dbt-core-11958,other,dbt-labs/dbt-core,2025-08-26T18:21:56Z,https://github.com/dbt-labs/dbt-core/issues/11958,[UDFs] Support for selecting `functions` by resource type selection,"enhancement, user docs, UDFs, P1","Say you want to re-instantiate all your UDFs in your project. To do so you need to be able to do something like `dbt build --select resource_type:function`.
+
+Acceptance Criteria (2):
+--------------------------------------------------------------------------------
+  1. Functions are selectable resource type
+  2. backports be required?"
+dbt-labs-dbt-core-11955,other,dbt-labs/dbt-core,2025-08-24T20:54:17Z,https://github.com/dbt-labs/dbt-core/issues/11955,[Feature] Stop parsing disabled models,"enhancement, triage","I am using one dbt project as a package for other projects. By default all models are disabled in core project and have to be explicitly enabled in client project.
+  
+  I noticed that even disabled models are subject to parsing, which I don't think should be happening. Perhaps I don't need it and with a large number of models, it may even impact the time it takes to parse etc.
+  
+  It's mostly related to `sources`. If I define a ""catalogue"" of sources and they're all disabled. I want to enable sources that exist. If tables or schemas do not exist, they will return an error even though they're disabled.
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. return an error even though they're disabled.
+  2. I have searched the existing issues, and I could not find an existing issue for this bug
+  3. I believe this is a new bug in dbt-core"
+dbt-labs-dbt-core-11948,headless-api,dbt-labs/dbt-core,2025-08-21T21:00:37Z,https://github.com/dbt-labs/dbt-core/issues/11948,[BUG] disabled model is not disabled when Core parses,"enhancement, triage","`stg_zendesk__audit_log_tmp` in the zendesk `1.0.0` package is disabled as is the source `zendesk.audit_log`.
+  
+  Fusion has no problem with this and can parse correctly.
+  
+  ```
+  20:41:34  Encountered an error:
+  Compilation Error
+    Model 'model.zendesk.stg_zendesk__audit_log_tmp' (models/staging/tmp/stg_zendesk__audit_log_tmp.sql) depends on a source named 'zendesk.audit_log' which is disabled
+  ```"
+dbt-labs-dbt-core-11946,api-backend,dbt-labs/dbt-core,2025-08-21T14:45:32Z,https://github.com/dbt-labs/dbt-core/issues/11946,[Feature] Snowflake Microbatch - Need batch_size as minute,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  We have jobs which runs every 10 mins or so and we use incremental strategy. We wanted to try microbatch but found there is no batch_size = minute 
+  This is more impotrant due to millions of rows and running hour will take more time to get data be ready
+  
+  We have been using dbt original incremental strategy
+
+Acceptance Criteria (4):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)
+  4. take more time to get data be ready"
+dbt-labs-dbt-core-11943,api-backend,dbt-labs/dbt-core,2025-08-21T09:56:29Z,https://github.com/dbt-labs/dbt-core/issues/11943,[Feature] invocation_id and run_started_at in seed tables,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  We want users of data to be assured that the data is ""fresh"". With seed data this either means adding table-alterning post hooks or always running a transformation step after data is imported, which if run by itself would ""make up"" the ensuing timestamp.
+  
+  The easiest way would be to default/allow us to have the invocation_id and/or the run_started_at timestamp automatically show up in the table. alternatively just a updated_at.
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+dbt-labs-dbt-core-11927,devops,dbt-labs/dbt-core,2025-08-18T06:56:17Z,https://github.com/dbt-labs/dbt-core/issues/11927,[Feature] profiles.yml (+ support profiles.yaml),"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  Currently, dbt only supports profiles.yml as the valid filename for project profiles.
+  I would like dbt to also recognize profiles.yaml as a valid alternative.
+  
+  This would improve usability and align with many teams’ conventions where .yaml is the default extension (e.g., Kubernetes manifests, GitHub Actions workflows, CI/CD pipelines).
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+dbt-labs-dbt-core-11924,api-backend,dbt-labs/dbt-core,2025-08-16T00:41:03Z,https://github.com/dbt-labs/dbt-core/issues/11924,[Feature] incremental_strategy=“microbatch” should have a batch aggregate strategy.,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  As far as I can tell, there’s no way to elegantly coalesce the opposing needs of backfill operations and daily updates when using microbatch for the incremental strategy.
+  
+  For example: assume I run DBT daily to update my models. Also assume I am integrating new models or changing schemas every so often, which requires backfilling data. I would like a way to backfill in larger batches than I perform on a day to day basis.
+
+Acceptance Criteria (4):
+--------------------------------------------------------------------------------
+  1. reduce number of queries in backfills.
+  2. I have searched the existing issues, and I could not find an existing issue for this feature
+  3. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  4. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+dbt-labs-dbt-core-11919,headless-api,dbt-labs/dbt-core,2025-08-15T17:55:19Z,https://github.com/dbt-labs/dbt-core/issues/11919,[Feature] Support Nested Key Traversal in `dbt ls` output,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  Today, we don't support the ability to write out nested keys when doing `dbt list` commands like:
+  
+  ```
+  dbt ls --output json --output json --output-keys config.materialized --resource-type model snapshot
+  ```
+
+Acceptance Criteria (4):
+--------------------------------------------------------------------------------
+  1. output info from this and paste it elsewhere, so compiling the correct info quickly is valuable.
+  2. I have searched the existing issues, and I could not find an existing issue for this feature
+  3. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  4. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+dbt-labs-dbt-core-11918,api-backend,dbt-labs/dbt-core,2025-08-13T00:55:23Z,https://github.com/dbt-labs/dbt-core/issues/11918,[Feature] “microbatch” strategy based on batches of ids.,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  Processes “batches” of ids in an  incremental model
+  
+  The current incremental model based on a unique key is not good enough since we are making joins on very big datasets and each incremental load might run out of memory performing some of this joins. So we ended up with a merge statement inserting big data chunks in batches.
+
+Acceptance Criteria (4):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)
+  4. need a lot of “out of the box” setup."
+dbt-labs-dbt-core-11917,traditional-website,dbt-labs/dbt-core,2025-08-12T19:42:09Z,https://github.com/dbt-labs/dbt-core/issues/11917,[EPIC] Support for UDFs,"Epic, UDFs","This is a public facing epic for the tracking of work to support UDFs in dbt-core
+  
+  [internal notion](https://www.notion.so/dbtlabs/UDFs-Spec-Page-270bb38ebda7801fbd33fbceb71e11c0#270bb38ebda7801fbd33fbceb71e11c0)
+  
+  ## Issue Creation
+  * All sub issues should have the following labels
+    * `UDFs`
+    * `user docs`
+  * All sub issues should have _one_ of the following labels
+    * `P0` for issues that are required for MVP
+  ... (4 more lines)
+
+Acceptance Criteria (6):
+--------------------------------------------------------------------------------
+  1. temporary UDFs
+  2. have a type (most will likely be `Feature`, though `Bug` will probably crop up at some point)
+  3. have _one_ of the following labels
+  4. have the following labels
+  5. UDFs support jinja to do referencing (dynamic)
+  6. UDF smarter refreshing"
+dbt-labs-dbt-core-11913,api-backend,dbt-labs/dbt-core,2025-08-12T04:13:07Z,https://github.com/dbt-labs/dbt-core/issues/11913,[Feature] Throw warning when package lockfile is regenerated,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  Currently, when dbt detects that `packages.yml` has changed (via SHA1 hash comparison), it silently regenerates the `package-lock.yml` file during `dbt deps`. This can lead to confusion for users who may not realize their lockfile has been updated.
+  
+  This can happen when some underlying unintended or unknown functionality is causing the lockfile to regenerate, for example:
+  * https://github.com/dbt-labs/dbt-core/issues/10913
+  * https://github.com/dbt-labs/dbt-core/issues/11661
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+dbt-labs-dbt-core-11909,api-backend,dbt-labs/dbt-core,2025-08-09T11:57:24Z,https://github.com/dbt-labs/dbt-core/issues/11909,[Feature] Microbatch - don't query source data if batches don't exist,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  At the moment, if you run a microbatch model's full refresh and its `begin_time` is set so far in the past that source data doesn't have it, the engine will still run a query per batch.
+  
+  Wouldn't it be better to first run a query for the boundaries of all the batches and check if there are records to process?
+
+Acceptance Criteria (4):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)
+  4. still run a query per batch."
+dbt-labs-dbt-core-11907,api-backend,dbt-labs/dbt-core,2025-08-08T08:49:55Z,https://github.com/dbt-labs/dbt-core/issues/11907,[Feature] Show link to underlying job when tests fail,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  We use DBT with the BigQuery adapter. When a query (model or test) outright _fails_, DBT helpfully shows a message from the adapter with a link to the BigQuery job. This is very useful because it shows me what exactly actually ran, and what happened in this specific job.
+  
+  When a data test fails, DBT only tells me the number of offending rows, and the path to the file with the compiled query. For production runs, this file is on an ephemeral filesystem that I do not have access to.
+
+Acceptance Criteria (4):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)
+  4. depend on the adapter – even if job results are not persisted, it might be useful to give the user a link to re-run the same query on a test failure."
+dbt-labs-dbt-core-11903,traditional-website,dbt-labs/dbt-core,2025-08-06T22:11:35Z,https://github.com/dbt-labs/dbt-core/issues/11903,[Feature] Partial merge of sources YAML file from package,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  I am trying to use dbt to design a proper multi-tenant codebases. I had to settle for one codebase per client but I do want to use a common repository that will be treated as a package for out-of-the-box implementation when no changes are necessary.
+  
+  However, since the data isolation is also in the data warehouse (separate databases for clients). I need to change `database` in sources.
+
+Acceptance Criteria (5):
+--------------------------------------------------------------------------------
+  1. have to change all the clients.
+  2. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)
+  3. be treated as a package for out-of-the-box implementation when no changes are necessary.
+  4. I have searched the existing issues, and I could not find an existing issue for this feature
+  5. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion"
+dbt-labs-dbt-core-11898,api-backend,dbt-labs/dbt-core,2025-08-06T10:53:06Z,https://github.com/dbt-labs/dbt-core/issues/11898,[Feature] Need a feature to provide the names for the on-run-end and on-run-start hooks,"enhancement, triage","### Is this your first time submitting a feature request?
+  
+  If we have multiple macro calls in on-run-end hooks, the items are listed as {project_name}-on-run-end-0, {project_name}-on-run-end-1, {project_name}-on-run-end-2 etc,,. And this is the current behavior.
+  
+  It could be better if we have the facility to rename the hooks such as {project_name}-on-run-end-{my_macro_name}.
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+dbt-labs-dbt-core-11896,api-backend,dbt-labs/dbt-core,2025-08-05T23:12:30Z,https://github.com/dbt-labs/dbt-core/issues/11896,[Feature] Extend the functionality of selectors by profile + target,"enhancement, wontfix","### Is this your first time submitting a feature request?
+  
+  It would be great if selectors could specify a profile. I have a one repository that runs for multiple tenants. There are few small exceptions or models that need to be created only for a specific tenant, hence I have to create a selector anyway. Ability to add a profile there would make the CLI command cleaner
+  
+  Need to specify profile in the command line every time
+
+Acceptance Criteria (3):
+--------------------------------------------------------------------------------
+  1. I have searched the existing issues, and I could not find an existing issue for this feature
+  2. I am requesting a straightforward extension of existing dbt functionality, rather than a Big Idea better suited to a discussion
+  3. I have read the [expectations for open source contributors](https://docs.getdbt.com/docs/contributing/oss-expectations)"
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
